@@ -1,10 +1,15 @@
 dependencies:
-  - numpy>=1, <2
-  - nbconvert>=6, <7
-  - traitlets>=4.3, <5
-  - toolz>=0.8, <1
-  - docopt>=0.6.2, <1
-  - nbformat>=4.4.0, <5
-  - Jinja2>=2.10, <3
+  - numpy
+  - nbconvert
+  - traitlets
+  - toolz
+  - docopt
+  - nbformat
+  - Jinja2
   - bqplot
-  - ipywidgets>=7.5.0, <8
+  - ipywidgets
+  - scipy
+  - pandas
+  - seaborn
+  - statsmodels
+  
