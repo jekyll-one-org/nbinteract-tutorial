@@ -1,6 +1,7 @@
 dependencies:
   - numpy
   - nbconvert
+  - nbinteract
   - traitlets
   - toolz
   - docopt
@@ -12,4 +13,3 @@ dependencies:
   - pandas
   - seaborn
   - statsmodels
-  
