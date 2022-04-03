@@ -1,74 +1,55 @@
-# Unneeded files used/created by NPM
-# ------------------------------------------------------------------------------
-node_modules/
-
-yarn.lock
-
-package-lock.json
-
-# Unneeded files created by you or helper processes
-# Ignore symbolic links as simple files!!!
-# ------------------------------------------------------------------------------
-log
-
-Gemfile
-
-Gemfile.lock
-
-tmp/
-
-\.bundle/
-
-\.idea/
-
-\.jekyll-cache/
-
-\.vscode/
-
-\.sass-cache/
-
-**/*.old
-
-**/*.tmp
-
-**/*.log
-
-**/*.current
-
-**/*.pdf
-
-**/*.swp
-
-**/*_backup
-
 # Unneeded files from jekyll site
 # ------------------------------------------------------------------------------
-notebooks/
+_site/
+assets/
+_sass/
+_includes/
+_layouts/
+etc/
+
+**/*.html
+
 convert_notebooks_to_html_partial.py
+CNAME
 Gemfile
 Gemfile.lock
 node_modules
-vendor/bundle/
-vendor/cache/
-vendor/gems/
-vendor/ruby/
-LICENSE.txt
-MANIFEST.in
-Makefile
-__pycache__
+# examples/
+images/
+log/
+notebooks-images/
+# recipes/
+# tutorial/
+
+# vendor/bundle/
+# vendor/cache/
+# vendor/gems/
+# vendor/ruby/
+
+# LICENSE.txt
+# MANIFEST.in
+# Makefile
+# __pycache__
+
 _config.yml
-build
-conftest.py
-dist
-lerna.json
-nbinteract
-nbinteract.egg-info
-node_modules
-notebooks/
-package.json
-packages
-prettier.config.js
-setup.cfg
-setup.py
-tests
+
+# build
+# conftest.py
+# dist
+# lerna.json
+# nbinteract
+# nbinteract.egg-info
+
+node_modules/
+
+# package.json
+# packages
+# prettier.config.js
+# setup.cfg
+# setup.py
+# tests
+
 yarn.lock
+package-lock.json
+
+\.jekyll-cache/
