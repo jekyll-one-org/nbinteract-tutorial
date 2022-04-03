@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>nbinteract</title>
+  <meta name="description" content="">
+
+  <link rel="canonical" href="http://www.nbinteract.com/">
+  <link rel="alternate" type="application/rss+xml" title="nbinteract" href="http://www.nbinteract.com/feed.xml">
+
+  <meta property="og:url"         content="http://www.nbinteract.com/" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="nbinteract" />
+<meta property="og:description" content="" />
+<meta property="og:image"       content="" />
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage":
+    "http://www.nbinteract.com/",
+  "headline":
+    "nbinteract",
+  "datePublished":
+    "2022-04-03T12:32:00+02:00",
+  "dateModified":
+    "2022-04-03T12:32:00+02:00",
+  "description":
+    "",
+  "author": {
+    "@type": "Person",
+    "name": "Samuel Lau and Caleb Siu"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://www.nbinteract.com",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://www.nbinteract.com",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Allow inline math using $ and automatically break long math lines -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      CommonHTML: {
+        linebreaks: {
+          automatic: true,
+        },
+      },
+    });
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="/assets/js/turbolinks.js" async></script>
+
+  <!-- Load nbinteract for widgets -->
+  <!-- script src="https://unpkg.com/nbinteract-core" async></script -->
+  <script src="/assets/js/index.bundle.js" async></script>
+  <script src="/assets/js/index.bundle.js.map" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Google analytics -->
+  <script src="/assets/js/ga.js" async></script>
+</head>
+
+  <body>
+    <!-- Show sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <ul class="c-sidebar__chapters">
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry c-sidebar__entry--active"
+          href="/index.html"
+        >
+          
+          nbinteract Docs
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/motivation.html"
+        >
+          
+          Motivation
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/tutorial/tutorial_intro.html"
+        >
+          
+          Getting Started
+        </a>
+
+        
+          
+
+          <ul class="c-sidebar__sections">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/tutorial/tutorial_github_setup.html"
+                >
+                  
+                  Setting up GitHub Pages
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/tutorial/tutorial_interact.html"
+                >
+                  
+                  Simple Interactive Webpage
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/tutorial/tutorial_publishing.html"
+                >
+                  
+                  Publishing Your Webpage
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/tutorial/tutorial_monty_hall.html"
+                >
+                  
+                  Walkthrough: Monty Hall Simulation
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/recipes/recipes_intro.html"
+        >
+          
+          Recipes
+        </a>
+
+        
+          
+
+          <ul class="c-sidebar__sections">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/recipes/recipes_exporting.html"
+                >
+                  
+                  Exporting
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/recipes/recipes_graphing.html"
+                >
+                  
+                  Graphing
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/recipes/recipes_layout.html"
+                >
+                  
+                  Page Layout / Dashboarding
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/recipes/recipes_interactive_questions.html"
+                >
+                  
+                  Interactive Questions
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/examples/examples_intro.html"
+        >
+          
+          Examples
+        </a>
+
+        
+          
+
+          <ul class="c-sidebar__sections">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_empirical_distributions.html"
+                >
+                  
+                  Empirical Distributions
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_sampling_from_a_population.html"
+                >
+                  
+                  Sampling from a Population
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_variability_of_the_sample_mean.html"
+                >
+                  
+                  Variability of the Sample Mean
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_correlation.html"
+                >
+                  
+                  Correlation
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_linear_regression.html"
+                >
+                  
+                  Linear Regression
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_probability_distribution_plots.html"
+                >
+                  
+                  Probability Distribution Plots
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_central_limit_theorem.html"
+                >
+                  
+                  Central Limit Theorem
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+  </ul>
+</nav>
+
+
+      <main class="c-textbook__page" tabindex="-1">
+        <div class="o-wrapper c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+        <div class="o-wrapper">
+          
+
+<div id="ipython-notebook">
+    <div class="buttons">
+        <button class="interact-button js-nbinteract-widget">
+            Show Widgets
+        </button>
+    </div>
+    
+
+
+
+
+
+
+
+  
+
+  <div class="nbinteract-hide_in
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="c1"># Clear previously defined variables</span>
+<span class="o">%</span><span class="k">reset</span> -f
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+
+  
+
+  <div class="nbinteract-hide_in
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">999</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="nbinteract">nbinteract<a class="anchor-link" href="#nbinteract">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>nbinteract</code> is a Python package that provides a command-line tool to generate interactive web pages from Jupyter notebooks. It allows <a href="https://github.com/jupyter-widgets/ipywidgets/">Jupyter widgets</a> to remain interactive even when the notebook is converted to static HTML by using <a href="http://mybinder.org/">Binder servers</a> as the computational backend.</p>
+<p><code>nbinteract</code> also provides Python functions for simple, interactive plots. These interactions are driven by data, not callbacks, allowing authors to focus on the logic of their programs.</p>
+<p><code>nbinteract</code> is useful for:</p>
+<ul>
+<li>Data scientists that want to create simple interactive blog posts without having
+to know / work with Javascript.</li>
+<li>Instructors that want to include interactive examples in their textbooks.</li>
+<li>Students that want to publish data analysis that contains interactive demos.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Converting-Notebooks">Converting Notebooks<a class="anchor-link" href="#Converting-Notebooks">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>From the command line:</p>
+<div class="highlight"><pre><span></span><span class="c1"># Run on the command line to convert the notebook into a publishable HTML page.</span>
+<span class="c1">#</span>
+<span class="c1"># nbinteract {NOTEBOOK.ipynb} -s {BINDER_SPEC}</span>
+<span class="c1">#</span>
+<span class="c1"># Replace {BINDER_SPEC} with a Binder spec in the format</span>
+<span class="c1"># {username}/{repo}/{branch} (e.g. SamLau95/nbinteract-image/master).</span>
+<span class="c1"># The branch is optional; if omitted, defaults to `main`</span>
+<span class="c1">#</span>
+<span class="c1"># Replace {NOTEBOOK.ipynb} with the name of the notebook file to convert.</span>
+<span class="c1">#</span>
+<span class="c1"># For example:</span>
+nbinteract homepage.ipynb -s SamLau95/nbinteract-image
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>After initializing a GitHub repo and running <code>nbinteract init</code>, you may omit the Binder spec and simply write:</p>
+<div class="highlight"><pre><span></span>nbinteract homepage.ipynb
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For more information on Binder specs and conversion, see the <a href="/tutorial/tutorial_intro.html">tutorial</a> which has a complete walkthrough on publishing a notebook to the web.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Plotting">Plotting<a class="anchor-link" href="#Plotting">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Most plotting functions from other libraries (e.g. <code>matplotlib</code>) take data as input. <code>nbinteract</code>'s plotting methods instead take in functions that return data.</p>
+<p>In the example below, the <code>normal</code> function generates data that we then plot using <code>nbi.hist()</code>.</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">nbinteract</span> <span class="k">as</span> <span class="nn">nbi</span>
+
+<span class="k">def</span> <span class="nf">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Returns 1000 points drawn at random fron N(mean, sd)&#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">sd</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">normal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([11.10032294,  8.01737258,  8.84975049, ...,  9.86721442,
+       11.06511688, 10.88371858])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot aesthetics</span>
+<span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;xlim&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+    <span class="s1">&#39;ylim&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">),</span>
+    <span class="s1">&#39;bins&#39;</span><span class="p">:</span> <span class="mi">20</span>
+<span class="p">}</span>
+
+<span class="c1"># Pass in the `normal` function and let user change mean and sd.</span>
+<span class="c1"># Whenever the user interacts with the sliders, the `normal` function</span>
+<span class="c1"># is called and the returned data are plotted.</span>
+<span class="n">nbi</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">normal</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">sd</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+
+<span class="c1"># Clicking the Show widget button below loads all widgets on the page.</span>
+<span class="c1"># Widgets will automatically load for all subsequent pages until you close</span>
+<span class="c1"># the tab/window.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+  <div class="output_subarea output_widget_view ">
+    <button class="js-nbinteract-widget">
+      Loading widgets...
+    </button>
+  </div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Simulations are easy to create using <code>nbinteract</code>. In this simulation, we roll a die and plot the running average of the rolls. We can see that with more rolls, the average gets closer to the expected value: 3.5.</p>
+
+</div>
+</div>
+</div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rolls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">averages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">rolls</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">301</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">x_vals</span><span class="p">(</span><span class="n">num_rolls</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_rolls</span><span class="p">)</span>
+
+<span class="c1"># The function to generate y-values gets called with the</span>
+<span class="c1"># x-values as its first argument.</span>
+<span class="k">def</span> <span class="nf">y_vals</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">averages</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+
+  
+
+  <div class="
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nbi</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">y_vals</span><span class="p">,</span> <span class="n">num_rolls</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">300</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    
+
+
+
+  <div class="output_subarea output_widget_view ">
+    <button class="js-nbinteract-widget">
+      Loading widgets...
+    </button>
+  </div>
+
+</div>
+
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Installation">Installation<a class="anchor-link" href="#Installation">&#182;</a></h2><p>Using <code>pip</code>:</p>
+<div class="highlight"><pre><span></span>pip install nbinteract
+
+<span class="c1"># The next two lines can be skipped for notebook version 5.3 and above</span>
+jupyter nbextension <span class="nb">enable</span> --py --sys-prefix widgetsnbextension
+jupyter nbextension <span class="nb">enable</span> --py --sys-prefix bqplot
+</pre></div>
+<p>You may now import the <code>nbinteract</code> package in Python code and use the <code>nbinteract</code> CLI command to convert notebooks to HTML pages.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Documentation">Documentation<a class="anchor-link" href="#Documentation">&#182;</a></h2><p>Access the tutorials, examples, and documentation for <code>nbinteract</code> using the links in the sidebar.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Feedback">Feedback<a class="anchor-link" href="#Feedback">&#182;</a></h2><p>If you have any questions or comments, send us a message on the <a href="https://gitter.im/nbinteract/Lobby/">Gitter channel</a>. We appreciate your feedback!</p>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+          <nav class="c-page__nav">
+  
+
+  
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/motivation.html">
+      Next <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+        </div>
+      </main>
+    </div>
+
+    <script>
+      window.ga =
+  window.ga ||
+  function() {
+    ;(ga.q = ga.q || []).push(arguments)
+  }
+ga.l = +new Date()
+ga('create', 'UA-42949369-5', 'auto')
+ga('send', 'pageview')
+
+    </script>
+  </body>
+</html>

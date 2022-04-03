@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>nbinteract</title>
+  <meta name="description" content="">
+
+  <link rel="canonical" href="http://www.nbinteract.com/examples/examples_intro.html">
+  <link rel="alternate" type="application/rss+xml" title="nbinteract" href="http://www.nbinteract.com/feed.xml">
+
+  <meta property="og:url"         content="http://www.nbinteract.com/examples/examples_intro.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="nbinteract" />
+<meta property="og:description" content="" />
+<meta property="og:image"       content="" />
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage":
+    "http://www.nbinteract.com/examples/examples_intro.html",
+  "headline":
+    "nbinteract",
+  "datePublished":
+    "2022-04-03T12:32:00+02:00",
+  "dateModified":
+    "2022-04-03T12:32:00+02:00",
+  "description":
+    "",
+  "author": {
+    "@type": "Person",
+    "name": "Samuel Lau and Caleb Siu"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://www.nbinteract.com",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://www.nbinteract.com",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Allow inline math using $ and automatically break long math lines -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      CommonHTML: {
+        linebreaks: {
+          automatic: true,
+        },
+      },
+    });
+  </script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="/assets/js/turbolinks.js" async></script>
+
+  <!-- Load nbinteract for widgets -->
+  <!-- script src="https://unpkg.com/nbinteract-core" async></script -->
+  <script src="/assets/js/index.bundle.js" async></script>
+  <script src="/assets/js/index.bundle.js.map" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/assets/js/scripts.js" async></script>
+
+  <!-- Google analytics -->
+  <script src="/assets/js/ga.js" async></script>
+</head>
+
+  <body>
+    <!-- Show sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <ul class="c-sidebar__chapters">
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/index.html"
+        >
+          
+          nbinteract Docs
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/motivation.html"
+        >
+          
+          Motivation
+        </a>
+
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/tutorial/tutorial_intro.html"
+        >
+          
+          Getting Started
+        </a>
+
+        
+          
+
+          <ul class="c-sidebar__sections">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/tutorial/tutorial_github_setup.html"
+                >
+                  
+                  Setting up GitHub Pages
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/tutorial/tutorial_interact.html"
+                >
+                  
+                  Simple Interactive Webpage
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/tutorial/tutorial_publishing.html"
+                >
+                  
+                  Publishing Your Webpage
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/tutorial/tutorial_monty_hall.html"
+                >
+                  
+                  Walkthrough: Monty Hall Simulation
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/recipes/recipes_intro.html"
+        >
+          
+          Recipes
+        </a>
+
+        
+          
+
+          <ul class="c-sidebar__sections">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/recipes/recipes_exporting.html"
+                >
+                  
+                  Exporting
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/recipes/recipes_graphing.html"
+                >
+                  
+                  Graphing
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/recipes/recipes_layout.html"
+                >
+                  
+                  Page Layout / Dashboarding
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/recipes/recipes_interactive_questions.html"
+                >
+                  
+                  Interactive Questions
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+
+      
+      
+
+      
+      
+
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry c-sidebar__entry--active"
+          href="/examples/examples_intro.html"
+        >
+          
+          Examples
+        </a>
+
+        
+          
+
+          <ul class="c-sidebar__sections">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_empirical_distributions.html"
+                >
+                  
+                  Empirical Distributions
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_sampling_from_a_population.html"
+                >
+                  
+                  Sampling from a Population
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_variability_of_the_sample_mean.html"
+                >
+                  
+                  Variability of the Sample Mean
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_correlation.html"
+                >
+                  
+                  Correlation
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_linear_regression.html"
+                >
+                  
+                  Linear Regression
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_probability_distribution_plots.html"
+                >
+                  
+                  Probability Distribution Plots
+                </a>
+              </li>
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/examples/examples_central_limit_theorem.html"
+                >
+                  
+                  Central Limit Theorem
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+
+      
+    
+  </ul>
+</nav>
+
+
+      <main class="c-textbook__page" tabindex="-1">
+        <div class="o-wrapper c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+        <div class="o-wrapper">
+          
+
+<div id="ipython-notebook">
+    <div class="buttons">
+        <button class="interact-button js-nbinteract-widget">
+            Show Widgets
+        </button>
+    </div>
+    
+
+
+
+
+
+
+
+  
+
+  <div class="nbinteract-hide_in
+      cell border-box-sizing code_cell rendered">
+    <div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HIDDEN</span>
+<span class="c1"># Clear previously defined variables</span>
+<span class="o">%</span><span class="k">reset</span> -f
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+  </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Examples">Examples<a class="anchor-link" href="#Examples">&#182;</a></h1><p>This section contains fleshed out example explanations that make use of
+<code>nbinteract</code>. Many of these examples were originally static pages taken from
+<a href="https://www.inferentialthinking.com/">UC Berkeley's Data 8 textbook</a> augmented with interactivity.</p>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+          <nav class="c-page__nav">
+  
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/recipes/recipes_interactive_questions.html">
+      〈 <span class="u-margin-right-tiny"></span> Previous
+    </a>
+  
+
+  
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/examples/examples_empirical_distributions.html">
+      Next <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+        </div>
+      </main>
+    </div>
+
+    <script>
+      window.ga =
+  window.ga ||
+  function() {
+    ;(ga.q = ga.q || []).push(arguments)
+  }
+ga.l = +new Date()
+ga('create', 'UA-42949369-5', 'auto')
+ga('send', 'pageview')
+
+    </script>
+  </body>
+</html>
