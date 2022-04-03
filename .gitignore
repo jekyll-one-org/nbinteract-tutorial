@@ -5,9 +5,11 @@ assets/
 _sass/
 _includes/
 _layouts/
+_data/
 etc/
 
 **/*.html
+**/*.log
 
 convert_notebooks_to_html_partial.py
 CNAME
@@ -42,7 +44,8 @@ _config.yml
 
 node_modules/
 
-# package.json
+package.json
+
 # packages
 # prettier.config.js
 # setup.cfg
