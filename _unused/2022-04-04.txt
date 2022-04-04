@@ -1,0 +1,43 @@
+ERROR: Cannot install -r requirements.txt (line 2), -r requirements.txt (line 3), -r requirements.txt (line 9) and traitlets<5 and >=4.3 because these package versions have conflicting dependencies.
+BinderHub.js:63
+The conflict is caused by:
+    The user requested traitlets<5 and >=4.3
+    bqplot 0.11.0 depends on traitlets>=4.3.0
+    ipython 6.0.0 depends on traitlets>=4.2
+    nbconvert 6.4.5 depends on traitlets>=5.0
+    The user requested traitlets<5 and >=4.3
+    bqplot 0.11.0 depends on traitlets>=4.3.0
+    ipython 6.0.0 depends on traitlets>=4.2
+    nbconvert 6.4.4 depends on traitlets>=5.0
+    The user requested traitlets<5 and >=4.3
+    bqplot 0.11.0 depends on traitlets>=4.3.0
+    ipython 6.0.0 depends on traitlets>=4.2
+    nbconvert 6.4.3 depends on traitlets>=5.0
+    The user requested traitlets<5 and >=4.3
+    bqplot 0.11.0 depends on traitlets>=4.3.0
+    ipython 6.0.0 depends on traitlets>=4.2
+    nbconvert 6.4.2 depends on traitlets>=5.0
+    The user requested traitlets<5 and >=4.3
+    bqplot 0.11.0 depends on traitlets>=4.3.0
+    ipython 6.0.0 depends on traitlets>=4.2
+    nbconvert 6.4.1 depends on traitlets>=5.0
+    The user requested traitlets<5 and >=4.3
+    bqplot 0.11.0 depends on traitlets>=4.3.0
+    ipython 6.0.0 depends on traitlets>=4.2
+    nbconvert 6.4.0 depends on traitlets>=5.0
+    The user requested traitlets<5 and >=4.3
+    bqplot 0.11.0 depends on traitlets>=4.3.0
+    ipython 6.0.0 depends on traitlets>=4.2
+    nbconvert 6.3.0 depends on traitlets>=5.0
+    The user requested traitlets<5 and >=4.3
+    bqplot 0.11.0 depends on traitlets>=4.3.0
+    ipython 6.0.0 depends on traitlets>=4.2
+    nbconvert 6.2.0 depends on traitlets>=5.0
+    The user requested traitlets<5 and >=4.3
+    bqplot 0.11.0 depends on traitlets>=4.3.0
+    ipython 6.0.0 depends on traitlets>=4.2
+    nbconvert 6.1.0 depends on traitlets>=5.0
+
+To fix this you could try to:
+1. loosen the range of package versions you've specified
+2. remove package versions to allow pip attempt to solve the dependency conflict
