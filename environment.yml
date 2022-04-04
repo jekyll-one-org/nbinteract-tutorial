@@ -7,7 +7,7 @@ dependencies:
   - bqplot
   - numpy
   - scipy
-  - git+https://github.com/pandas-dev/pandas.git
+  - 'git+https://github.com/pandas-dev/pandas.git'
   - seaborn
   - statsmodels
   - matplotlib
