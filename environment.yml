@@ -1,17 +1,17 @@
 dependencies:
   - numpy
   - nbconvert
-# - nbinteract
-  - traitlets
-  - toolz
-  - docopt
   - nbformat
-  - Jinja2
+# - nbinteract
+# - traitlets
+# - toolz
+# - docopt
+# - Jinja2
+# - datascience
   - bqplot
   - ipywidgets
   - scipy
   - pandas
   - seaborn
   - statsmodels
-# - datascience
   - matplotlib
