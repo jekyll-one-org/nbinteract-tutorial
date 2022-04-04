@@ -11,3 +11,11 @@ dependencies:
   - seaborn
   - statsmodels
   - matplotlib
+# - nbconvert
+# - nbformat
+# - nbinteract
+# - traitlets
+# - toolz
+# - docopt
+# - Jinja2
+# - datascience

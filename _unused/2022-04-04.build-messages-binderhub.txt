@@ -1,0 +1,256 @@
+#
+# To activate this environment, use
+#
+#     $ conda activate /srv/conda/envs/notebook
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+d pandas                               (00m:01s)              13 MB      5 MB/s
+Finished mysql-libs                           (00m:00s)               2 MB    674 KB/s
+Finished patsy                                (00m:00s)             188 KB     66 KB/s
+Finished seaborn                              (00m:00s)               4 KB      1 KB/s
+Finished nbconvert                            (00m:00s)               6 KB      2 KB/s
+Finished libiconv                             (00m:00s)               1 MB    434 KB/s
+Finished font-ttf-ubuntu                      (00m:00s)               2 MB    600 KB/s
+Finished pcre                                 (00m:00s)             253 KB     78 KB/s
+Finished libimagequant                        (00m:00s)              48 KB     15 KB/s
+Finished fribidi                              (00m:00s)             112 KB     34 KB/s
+Finished libxml2                              (00m:00s)             760 KB    226 KB/s
+Finished zstd                                 (00m:00s)             458 KB    136 KB/s
+Finished libblas                              (00m:00s)              12 KB      4 KB/s
+Finished pyqtwebengine                        (00m:00s)             175 KB     50 KB/s
+Finished seaborn-base                         (00m:00s)             223 KB     64 KB/s
+Finished font-ttf-inconsolata                 (00m:00s)              94 KB     27 KB/s
+Finished pyqt-impl                            (00m:00s)               6 MB      2 MB/s
+Finished gstreamer                            (00m:00s)               2 MB    570 KB/s
+Finished unicodedata2                         (00m:00s)             501 KB    139 KB/s
+Finished libopus                              (00m:00s)             255 KB     69 KB/s
+Finished libogg                               (00m:00s)             206 KB     56 KB/s
+Finished libvorbis                            (00m:00s)             280 KB     74 KB/s
+Finished brotli                               (00m:00s)              18 KB      5 KB/s
+Finished matplotlib                           (00m:00s)               6 KB      2 KB/s
+Finished libpq                                (00m:00s)               3 MB    794 KB/s
+Finished fonts-conda-forge                    (00m:00s)               4 KB      1 KB/s
+Finished libbrotlicommon                      (00m:00s)              65 KB     16 KB/s
+Finished libuuid                              (00m:00s)              28 KB      7 KB/s
+Finished libtiff                              (00m:00s)             638 KB    155 KB/s
+Finished pyqt                                 (00m:00s)              22 KB      5 KB/s
+Finished nbconvert-pandoc                     (00m:00s)               4 KB      1 KB/s
+Finished jbig                                 (00m:00s)              43 KB     10 KB/s
+Finished libglib                              (00m:00s)               3 MB    741 KB/s
+Finished jpeg                                 (00m:00s)             269 KB     63 KB/s
+Finished libbrotlienc                         (00m:00s)             287 KB     66 KB/s
+Finished scipy                                (00m:01s)              22 MB      5 MB/s
+Finished xorg-libxdmcp                        (00m:00s)              19 KB      4 KB/s
+Finished libllvm13                            (00m:04s)              34 MB      8 MB/s
+Finished matplotlib-base                      (00m:00s)               7 MB      2 MB/s
+Finished font-ttf-dejavu-sans-mono            (00m:00s)             388 KB     80 KB/s
+Finished libcblas                             (00m:00s)              12 KB      3 KB/s
+Finished libwebp-base                         (00m:00s)             824 KB    169 KB/s
+Finished lcms2                                (00m:00s)             443 KB     90 KB/s
+Finished libopenblas                          (00m:00s)              10 MB      2 MB/s
+Finished statsmodels                          (00m:00s)              11 MB      2 MB/s
+Finished pillow                               (00m:02s)              45 MB      8 MB/s
+Finished qt                                   (00m:04s)              99 MB     16 MB/s
+time: 103.434
+
+
+
+---> Running in 066c1de5dae4
+pkgs/main/noarch
+pkgs/r/linux-64
+pkgs/r/noarch
+pkgs/main/linux-64
+conda-forge/noarch
+conda-forge/linux-64
+Transaction
+
+ Prefix: /srv/conda/envs/notebook
+
+ Updating specs:
+
+  - numpy
+  - bqplot
+  - scipy
+  - pandas
+  - seaborn
+  - statsmodels
+  - matplotlib
+  - nbconvert
+  - nbformat
+  - ipywidgets
+
+
+ Package                       Version  Build                Channel                    Size
+───────────────────────────────────────────────────────────────────────────────────────────────
+ Install:
+───────────────────────────────────────────────────────────────────────────────────────────────
+
+ + alsa-lib                      1.2.3  h516909a_0           conda-forge/linux-64     560 KB
+ + beautifulsoup4               4.10.0  pyha770c72_0         conda-forge/noarch        77 KB
+ + bqplot                      0.12.33  pyhd8ed1ab_0         conda-forge/noarch         1 MB
+ + brotli                        1.0.9  h166bdaf_7           conda-forge/linux-64      18 KB
+ + brotli-bin                    1.0.9  h166bdaf_7           conda-forge/linux-64      19 KB
+ + cycler                       0.11.0  pyhd8ed1ab_0         conda-forge/noarch        10 KB
+ + dbus                         1.13.6  h5008d03_3           conda-forge/linux-64     604 KB
+ + expat                         2.4.8  h27087fc_0           conda-forge/linux-64     187 KB
+ + font-ttf-dejavu-sans-mono      2.37  hab24e00_0           conda-forge/noarch       388 KB
+ + font-ttf-inconsolata          3.000  h77eed37_0           conda-forge/noarch        94 KB
+ + font-ttf-source-code-pro      2.038  h77eed37_0           conda-forge/noarch       684 KB
+ + font-ttf-ubuntu                0.83  hab24e00_0           conda-forge/noarch         2 MB
+ + fontconfig                  2.13.96  h8e229c2_2           conda-forge/linux-64     306 KB
+ + fonts-conda-ecosystem             1  0                    conda-forge/noarch         4 KB
+ + fonts-conda-forge                 1  0                    conda-forge/noarch         4 KB
+ + fonttools                    4.31.2  py37h540881e_0       conda-forge/linux-64       2 MB
+ + freetype                     2.10.4  h0708190_1           conda-forge/linux-64     890 KB
+ + fribidi                      1.0.10  h36c2ea0_0           conda-forge/linux-64     112 KB
+ + gettext                    0.19.8.1  h73d1719_1008        conda-forge/linux-64       4 MB
+ + giflib                        5.2.1  h36c2ea0_2           conda-forge/linux-64      77 KB
+ + gst-plugins-base             1.18.5  hf529b03_3           conda-forge/linux-64       3 MB
+ + gstreamer                    1.18.5  h9f60fe5_3           conda-forge/linux-64       2 MB
+ + jbig                            2.1  h7f98852_2003        conda-forge/linux-64      43 KB
+ + jpeg                             9e  h7f98852_0           conda-forge/linux-64     269 KB
+ + kiwisolver                    1.4.2  py37h7cecad7_1       conda-forge/linux-64      73 KB
+ + lcms2                          2.12  hddcbb42_0           conda-forge/linux-64     443 KB
+ + lerc                            3.0  h9c3ff4c_0           conda-forge/linux-64     216 KB
+ + libblas                       3.9.0  13_linux64_openblas  conda-forge/linux-64      12 KB
+ + libbrotlicommon               1.0.9  h166bdaf_7           conda-forge/linux-64      65 KB
+ + libbrotlidec                  1.0.9  h166bdaf_7           conda-forge/linux-64      33 KB
+ + libbrotlienc                  1.0.9  h166bdaf_7           conda-forge/linux-64     287 KB
+ + libcblas                      3.9.0  13_linux64_openblas  conda-forge/linux-64      12 KB
+ + libclang                     13.0.1  default_hc23dcda_0   conda-forge/linux-64      11 MB
+ + libdeflate                     1.10  h7f98852_0           conda-forge/linux-64      77 KB
+ + libevent                     2.1.10  h9b69904_4           conda-forge/linux-64       1 MB
+ + libgfortran-ng               11.2.0  h69a702a_14          conda-forge/linux-64      20 KB
+ + libgfortran5                 11.2.0  h5c6108e_14          conda-forge/linux-64       2 MB
+ + libglib                      2.70.2  h174f98d_4           conda-forge/linux-64       3 MB
+ + libiconv                       1.16  h516909a_0           conda-forge/linux-64       1 MB
+ + libimagequant                2.17.0  h7f98852_1           conda-forge/linux-64      48 KB
+ + liblapack                     3.9.0  13_linux64_openblas  conda-forge/linux-64      12 KB
+ + libllvm13                    13.0.1  hf817b99_2           conda-forge/linux-64      34 MB
+ + libogg                        1.3.4  h7f98852_1           conda-forge/linux-64     206 KB
+ + libopenblas                  0.3.18  pthreads_h8fe5266_0  conda-forge/linux-64      10 MB
+ + libopus                       1.3.1  h7f98852_1           conda-forge/linux-64     255 KB
+ + libpng                       1.6.37  h21135ba_2           conda-forge/linux-64     306 KB
+ + libpq                          14.2  hd57d9b9_0           conda-forge/linux-64       3 MB
+ + libtiff                       4.3.0  h542a066_3           conda-forge/linux-64     638 KB
+ + libuuid                      2.32.1  h7f98852_1000        conda-forge/linux-64      28 KB
+ + libvorbis                     1.3.7  h9c3ff4c_0           conda-forge/linux-64     280 KB
+ + libwebp                       1.2.2  h3452ae3_0           conda-forge/linux-64      85 KB
+ + libwebp-base                  1.2.2  h7f98852_1           conda-forge/linux-64     824 KB
+ + libxcb                         1.13  h7f98852_1004        conda-forge/linux-64     391 KB
+ + libxkbcommon                  1.0.3  he3ba5ed_0           conda-forge/linux-64     581 KB
+ + libxml2                      2.9.12  h885dcf4_1           conda-forge/linux-64     760 KB
+ + lz4-c                         1.9.3  h9c3ff4c_1           conda-forge/linux-64     179 KB
+ + matplotlib                    3.5.1  py37h89c1867_0       conda-forge/linux-64       6 KB
+ + matplotlib-base               3.5.1  py37h1058ff1_0       conda-forge/linux-64       7 MB
+ + munkres                       1.1.4  pyh9f0ad1d_0         conda-forge/noarch        12 KB
+ + mysql-common                 8.0.28  ha770c72_0           conda-forge/linux-64       2 MB
+ + mysql-libs                   8.0.28  hfa10184_0           conda-forge/linux-64       2 MB
+ + nbconvert-core                6.4.5  pyhd8ed1ab_2         conda-forge/noarch       447 KB
+ + nbconvert-pandoc              6.4.5  pyhd8ed1ab_2         conda-forge/noarch         4 KB
+ + nspr                           4.32  h9c3ff4c_1           conda-forge/linux-64     233 KB
+ + nss                            3.74  hb5efdd6_0           conda-forge/linux-64       2 MB
+ + numpy                        1.21.5  py37hf2998dd_0       conda-forge/linux-64       6 MB
+ + openjpeg                      2.4.0  hb52868f_1           conda-forge/linux-64     444 KB
+ + pandas                        1.3.5  py37he8f5f7f_0       conda-forge/linux-64      13 MB
+ + patsy                         0.5.2  pyhd8ed1ab_0         conda-forge/noarch       188 KB
+ + pcre                           8.45  h9c3ff4c_0           conda-forge/linux-64     253 KB
+ + pillow                        9.0.1  py37hc8ad62e_1       conda-forge/linux-64      45 MB
+ + pthread-stubs                   0.4  h36c2ea0_1001        conda-forge/linux-64       5 KB
+ + pyqt                         5.12.3  py37h89c1867_8       conda-forge/linux-64      22 KB
+ + pyqt-impl                    5.12.3  py37hac37412_8       conda-forge/linux-64       6 MB
+ + pyqt5-sip                   4.19.18  py37hcd2ae1e_8       conda-forge/linux-64     310 KB
+ + pyqtchart                      5.12  py37he336c9b_8       conda-forge/linux-64     257 KB
+ + pyqtwebengine                5.12.1  py37he336c9b_8       conda-forge/linux-64     175 KB
+ + qt                           5.12.9  ha98a1a1_5           conda-forge/linux-64      99 MB
+ + scipy                         1.7.3  py37hf2a6cf1_0       conda-forge/linux-64      22 MB
+ + seaborn                      0.11.2  hd8ed1ab_0           conda-forge/noarch         4 KB
+ + seaborn-base                 0.11.2  pyhd8ed1ab_0         conda-forge/noarch       223 KB
+ + soupsieve                     2.3.1  pyhd8ed1ab_0         conda-forge/noarch        33 KB
+ + statsmodels                  0.13.2  py37hb1e94ed_0       conda-forge/linux-64      11 MB
+ + traittypes                    0.2.1  pyh9f0ad1d_2         conda-forge/noarch        10 KB
+ + typing-extensions             4.0.1  hd8ed1ab_0           conda-forge/noarch         8 KB
+ + unicodedata2                 14.0.0  py37h5e8e339_0       conda-forge/linux-64     501 KB
+ + xorg-libxau                   1.0.9  h7f98852_0           conda-forge/linux-64      13 KB
+ + xorg-libxdmcp                 1.1.3  h7f98852_0           conda-forge/linux-64      19 KB
+ + zstd                          1.5.2  ha95c52a_0           conda-forge/linux-64     458 KB
+
+ Upgrade:
+───────────────────────────────────────────────────────────────────────────────────────────────
+
+ - ipywidgets                    7.6.5  pyhd8ed1ab_0         installed
+ + ipywidgets                    7.7.0  pyhd8ed1ab_0         conda-forge/noarch       103 KB
+ - nbconvert                     6.0.7  py37h89c1867_3       installed
+ + nbconvert                     6.4.5  pyhd8ed1ab_2         conda-forge/noarch         6 KB
+ - nbformat                      5.1.3  pyhd8ed1ab_0         installed
+ + nbformat                      5.2.0  pyhd8ed1ab_0         conda-forge/noarch       105 KB
+ - widgetsnbextension            3.5.2  py37h89c1867_1       installed
+ + widgetsnbextension            3.6.0  py37h89c1867_0       conda-forge/linux-64       1 MB
+
+ Downgrade:
+───────────────────────────────────────────────────────────────────────────────────────────────
+
+ - setuptools                   60.5.0  py37h89c1867_0       installed
+ + setuptools                   59.8.0  py37h89c1867_1       conda-forge/linux-64       1 MB
+
+ Summary:
+
+ Install: 89 packages
+ Upgrade: 4 packages
+ Downgrade: 1 packages
+
+ Total download: 308 MB
+
+───────────────────────────────────────────────────────────────────────────────────────────────
+
+Finished soupsieve                            (00m:00s)              33 KB    166 KB/s
+Finished typing-extensions                    (00m:00s)               8 KB     36 KB/s
+Finished traittypes                           (00m:00s)              10 KB     45 KB/s
+Finished cycler                               (00m:00s)              10 KB     45 KB/s
+Finished fonts-conda-ecosystem                (00m:00s)               4 KB     15 KB/s
+Finished beautifulsoup4                       (00m:00s)              77 KB    299 KB/s
+Finished nbformat                             (00m:00s)             105 KB    390 KB/s
+Finished expat                                (00m:00s)             187 KB    527 KB/s
+Finished libdeflate                           (00m:00s)              77 KB    198 KB/s
+Finished lerc                                 (00m:00s)             216 KB    458 KB/s
+Finished alsa-lib                             (00m:00s)             560 KB   1004 KB/s
+Finished widgetsnbextension                   (00m:00s)               1 MB      2 MB/s
+Finished pthread-stubs                        (00m:00s)               5 KB      8 KB/s
+Finished libpng                               (00m:00s)             306 KB    455 KB/s
+Finished giflib                               (00m:00s)              77 KB    113 KB/s
+Finished libgfortran-ng                       (00m:00s)              20 KB     27 KB/s
+Finished libbrotlidec                         (00m:00s)              33 KB     44 KB/s
+Finished libgfortran5                         (00m:00s)               2 MB      3 MB/s
+Finished mysql-common                         (00m:00s)               2 MB      3 MB/s
+Finished libxcb                               (00m:00s)             391 KB    495 KB/s
+Finished fontconfig                           (00m:00s)             306 KB    353 KB/s
+Finished dbus                                 (00m:00s)             604 KB    696 KB/s
+Finished libxkbcommon                         (00m:00s)             581 KB    664 KB/s
+Finished libwebp                              (00m:00s)              85 KB     94 KB/s
+Finished fonttools                            (00m:00s)               2 MB      1 MB/s
+Finished gst-plugins-base                     (00m:00s)               3 MB      2 MB/s
+Finished pyqtchart                            (00m:00s)             257 KB    175 KB/s
+Finished ipywidgets                           (00m:00s)             103 KB     65 KB/s
+Finished munkres                              (00m:00s)              12 KB      6 KB/s
+Finished bqplot                               (00m:00s)               1 MB    542 KB/s
+Finished font-ttf-source-code-pro             (00m:00s)             684 KB    327 KB/s
+Finished nbconvert-core                       (00m:00s)             447 KB    202 KB/s
+Finished numpy                                (00m:01s)               6 MB      3 MB/s
+Finished pyqt5-sip                            (00m:00s)             310 KB    136 KB/s
+Finished setuptools                           (00m:00s)               1 MB    461 KB/s
+Finished nspr                                 (00m:00s)             233 KB    101 KB/s
+Finished libevent                             (00m:00s)               1 MB    461 KB/s
+Finished lz4-c                                (00m:00s)             179 KB     72 KB/s
+Finished xorg-libxau                          (00m:00s)              13 KB      5 KB/s
+Finished kiwisolver                           (00m:00s)              73 KB     28 KB/s
+Finished libclang                             (00m:01s)              11 MB      4 MB/s
+Finished freetype                             (00m:00s)             890 KB    331 KB/s
+Finished gettext                              (00m:00s)               4 MB      1 MB/s
+Finished brotli-bin                           (00m:00s)              19 KB      7 KB/s
+Finished liblapack                            (00m:00s)              12 KB      4 KB/s
+Finished openjpeg                             (00m:00s)             444 KB    160 KB/s
+Finished nss                                  (00m:00s)               2 MB    782 KB/s
+Finishe
