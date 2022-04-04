@@ -1,3 +1,5 @@
+cmds:
+  - pip: "pip install {pkg_name}"
 channels:
   - defaults
 dependencies:
@@ -7,7 +9,9 @@ dependencies:
   - bqplot
   - numpy
   - scipy
-  - 'git+https://github.com/pandas-dev/pandas.git'
+  - pandas
   - seaborn
   - statsmodels
   - matplotlib
+  - pip:
+    - nbinteract
