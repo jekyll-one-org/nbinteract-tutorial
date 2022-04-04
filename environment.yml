@@ -13,3 +13,6 @@ dependencies:
   - pandas
   - seaborn
   - statsmodels
+  - datascience
+  - matplotlib
+  
