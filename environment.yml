@@ -11,7 +11,7 @@ dependencies:
   - seaborn
   - statsmodels
   - matplotlib
-  - pip==21.1.2
+  - pip
   - pip:
     - nbinteract
     - datascience
