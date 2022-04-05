@@ -1,0 +1,974 @@
+Waiting for build to start...
+Picked Git content provider.
+Cloning into '/tmp/repo2dockerj7050w8i'...
+HEAD is now at fb57849 Updated environment.yml (pip) #2
+Building conda environment for python=Using CondaBuildPack builder
+Building conda environment for python=Building conda environment for python=Step 1/51 : FROM buildpack-deps:bionic
+ ---> 043b5581e482
+Step 2/51 : ENV DEBIAN_FRONTEND=noninteractive
+ ---> Using cache
+ ---> 6f1e5196dd50
+Step 3/51 : RUN apt-get -qq update &&     apt-get -qq install --yes --no-install-recommends locales > /dev/null &&     apt-get -qq purge &&     apt-get -qq clean &&     rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> f26907fd7f05
+Step 4/51 : RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&     locale-gen
+ ---> Using cache
+ ---> 86666f9e6b8f
+Step 5/51 : ENV LC_ALL en_US.UTF-8
+ ---> Using cache
+ ---> bbfc71d70164
+Step 6/51 : ENV LANG en_US.UTF-8
+ ---> Using cache
+ ---> 25c9c28a0f3a
+Step 7/51 : ENV LANGUAGE en_US.UTF-8
+ ---> Using cache
+ ---> d6ad005f5446
+Step 8/51 : ENV SHELL /bin/bash
+ ---> Using cache
+ ---> 30f6119cbe9e
+Step 9/51 : ARG NB_USER
+ ---> Using cache
+ ---> b1040a8b6602
+Step 10/51 : ARG NB_UID
+ ---> Using cache
+ ---> 1471ea5f4001
+Step 11/51 : ENV USER ${NB_USER}
+ ---> Using cache
+ ---> bf3f7c0514c3
+Step 12/51 : ENV HOME /home/${NB_USER}
+ ---> Using cache
+ ---> f0fd29189bd2
+Step 13/51 : RUN groupadd         --gid ${NB_UID}         ${NB_USER} &&     useradd         --comment "Default user"         --create-home         --gid ${NB_UID}         --no-log-init         --shell /bin/bash         --uid ${NB_UID}         ${NB_USER}
+ ---> Using cache
+ ---> e657178d0ec6
+Step 14/51 : RUN apt-get -qq update &&     apt-get -qq install --yes --no-install-recommends        less        unzip        > /dev/null &&     apt-get -qq purge &&     apt-get -qq clean &&     rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> 26d8a955f3d4
+Step 15/51 : EXPOSE 8888
+ ---> Using cache
+ ---> 0aa27aaee902
+Step 16/51 : ENV APP_BASE /srv
+ ---> Using cache
+ ---> 06e9d346a53b
+Step 17/51 : ENV CONDA_DIR ${APP_BASE}/conda
+ ---> Using cache
+ ---> 52b84641ce31
+Step 18/51 : ENV NB_PYTHON_PREFIX ${CONDA_DIR}/envs/notebook
+ ---> Using cache
+ ---> 9adbb6990bca
+Step 19/51 : ENV NPM_DIR ${APP_BASE}/npm
+ ---> Using cache
+ ---> 1e791c616688
+Step 20/51 : ENV NPM_CONFIG_GLOBALCONFIG ${NPM_DIR}/npmrc
+ ---> Using cache
+ ---> 5a10ead6b91f
+Step 21/51 : ENV NB_ENVIRONMENT_FILE /tmp/env/environment.lock
+ ---> Using cache
+ ---> d76a6c8f1fcb
+Step 22/51 : ENV MAMBA_ROOT_PREFIX ${CONDA_DIR}
+ ---> Using cache
+ ---> b098ad49b1a0
+Step 23/51 : ENV MAMBA_EXE ${CONDA_DIR}/bin/mamba
+ ---> Using cache
+ ---> 85a225c2b828
+Step 24/51 : ENV KERNEL_PYTHON_PREFIX ${NB_PYTHON_PREFIX}
+ ---> Using cache
+ ---> 24cfca89e65d
+Step 25/51 : ENV PATH ${NB_PYTHON_PREFIX}/bin:${CONDA_DIR}/bin:${NPM_DIR}/bin:${PATH}
+ ---> Using cache
+ ---> 466454d289f8
+Step 26/51 : COPY --chown=1000:1000 build_script_files/-2fusr-2flib-2fpython3-2e8-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2factivate-2dconda-2esh-391af5 /etc/profile.d/activate-conda.sh
+ ---> Using cache
+ ---> b5be98851ed3
+Step 27/51 : COPY --chown=1000:1000 build_script_files/-2fusr-2flib-2fpython3-2e8-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2fenvironment-2elock-1dbdca /tmp/env/environment.lock
+ ---> Using cache
+ ---> 05db17fcc1d7
+Step 28/51 : COPY --chown=1000:1000 build_script_files/-2fusr-2flib-2fpython3-2e8-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2finstall-2dbase-2denv-2ebash-8fbb20 /tmp/install-base-env.bash
+ ---> Using cache
+ ---> 6bdc20b08477
+Step 29/51 : RUN TIMEFORMAT='time: %3R' bash -c 'time /tmp/install-base-env.bash' && rm -rf /tmp/install-base-env.bash /tmp/env
+ ---> Using cache
+ ---> 3bdb1ab43cc6
+Step 30/51 : RUN mkdir -p ${NPM_DIR} && chown -R ${NB_USER}:${NB_USER} ${NPM_DIR}
+ ---> Using cache
+ ---> 33ab166c9af9
+Step 31/51 : USER root
+ ---> Using cache
+ ---> 3f30bf90a81c
+Step 32/51 : ARG REPO_DIR=${HOME}
+ ---> Using cache
+ ---> 2c278a7f98cd
+Step 33/51 : ENV REPO_DIR ${REPO_DIR}
+ ---> Using cache
+ ---> 654d1ccfb3e9
+Step 34/51 : WORKDIR ${REPO_DIR}
+ ---> Using cache
+ ---> 6d1fd278787b
+Step 35/51 : RUN chown ${NB_USER}:${NB_USER} ${REPO_DIR}
+ ---> Using cache
+ ---> bba8eba95c51
+Step 36/51 : ENV PATH ${HOME}/.local/bin:${REPO_DIR}/.local/bin:${PATH}
+ ---> Using cache
+ ---> e35569b6d7b2
+Step 37/51 : ENV CONDA_DEFAULT_ENV ${KERNEL_PYTHON_PREFIX}
+ ---> Using cache
+ ---> 705747a02ac2
+Step 38/51 : COPY --chown=1000:1000 src/environment.yml ${REPO_DIR}/environment.yml
+ ---> bef51aadb385
+Step 39/51 : USER ${NB_USER}
+ ---> Running in d4724937d335
+Removing intermediate container d4724937d335
+ ---> 4c3dab3c7908
+Step 40/51 : RUN TIMEFORMAT='time: %3R' bash -c 'time ${MAMBA_EXE} env update -p ${NB_PYTHON_PREFIX} --file "environment.yml" && time ${MAMBA_EXE} clean --all -f -y && ${MAMBA_EXE} list -p ${NB_PYTHON_PREFIX} '
+ ---> Running in 09ed64066ea6
+pkgs/r/noarch             
+pkgs/r/linux-64           
+pkgs/main/noarch          
+pkgs/main/linux-64        
+conda-forge/noarch        
+conda-forge/linux-64      
+Transaction
+
+  Prefix: /srv/conda/envs/notebook
+
+  Updating specs:
+
+   - matplotlib
+   - bqplot
+   - numpy
+   - scipy
+   - pandas
+   - seaborn
+   - statsmodels
+   - matplotlib
+   - ipython
+   - ipywidgets
+   - pip
+
+
+  Package                      Version  Build               Channel                    Size
+─────────────────────────────────────────────────────────────────────────────────────────────
+  Install:
+─────────────────────────────────────────────────────────────────────────────────────────────
+
+  + alsa-lib                     1.2.3  h516909a_0          conda-forge/linux-64     560 KB
+  + blas                           1.0  openblas            pkgs/main/linux-64        46 KB
+  + bottleneck                   1.3.4  py37hce1f21e_0      pkgs/main/linux-64       126 KB
+  + bqplot                     0.12.33  pyhd8ed1ab_0        conda-forge/noarch         1 MB
+  + brotli                       1.0.9  he6710b0_2          pkgs/main/linux-64       375 KB
+  + cycler                      0.11.0  pyhd3eb1b0_0        pkgs/main/noarch          12 KB
+  + dbus                       1.13.18  hb2f20db_0          pkgs/main/linux-64       504 KB
+  + expat                        2.4.4  h295c915_0          pkgs/main/linux-64       169 KB
+  + font-ttf-dejavu-sans-mono     2.37  hd3eb1b0_0          pkgs/main/noarch         335 KB
+  + font-ttf-inconsolata         2.001  hcb22688_0          pkgs/main/noarch          83 KB
+  + font-ttf-source-code-pro     2.030  hd3eb1b0_0          pkgs/main/noarch         654 KB
+  + font-ttf-ubuntu               0.83  h8b1ccd4_0          pkgs/main/noarch           1 MB
+  + fontconfig                  2.13.1  h6c09931_0          pkgs/main/linux-64       250 KB
+  + fonts-anaconda                   1  h8fa9717_0          pkgs/main/noarch           3 KB
+  + fonts-conda-ecosystem            1  hd3eb1b0_0          pkgs/main/noarch           5 KB
+  + fonttools                   4.25.0  pyhd3eb1b0_0        pkgs/main/noarch         632 KB
+  + freetype                    2.11.0  h70c0345_0          pkgs/main/linux-64       618 KB
+  + gettext                     0.21.0  hf68c758_0          pkgs/main/linux-64         3 MB
+  + giflib                       5.2.1  h7b6447c_0          pkgs/main/linux-64        78 KB
+  + glib                        2.70.2  h780b84a_4          conda-forge/linux-64     430 KB
+  + glib-tools                  2.70.2  h780b84a_4          conda-forge/linux-64     106 KB
+  + gst-plugins-base            1.18.5  hf529b03_3          conda-forge/linux-64       3 MB
+  + gstreamer                   1.18.5  ha1a6a79_0          pkgs/main/linux-64         2 MB
+  + jbig                           2.1  hdba287a_0          pkgs/main/linux-64        40 KB
+  + jpeg                            9d  h7f8727e_0          pkgs/main/linux-64       232 KB
+  + kiwisolver                   1.3.2  py37h295c915_0      pkgs/main/linux-64        80 KB
+  + lcms2                         2.12  h3be6417_0          pkgs/main/linux-64       312 KB
+  + lerc                           3.0  h295c915_0          pkgs/main/linux-64       196 KB
+  + libclang                    13.0.1  default_hc23dcda_0  conda-forge/linux-64      11 MB
+  + libdeflate                     1.8  h7f8727e_5          pkgs/main/linux-64        51 KB
+  + libevent                    2.1.10  h9b69904_4          conda-forge/linux-64       1 MB
+  + libgfortran-ng               7.5.0  ha8ba4b0_17         pkgs/main/linux-64        22 KB
+  + libgfortran4                 7.5.0  ha8ba4b0_17         pkgs/main/linux-64       995 KB
+  + libglib                     2.70.2  h174f98d_4          conda-forge/linux-64       3 MB
+  + libiconv                      1.16  h516909a_0          conda-forge/linux-64       1 MB
+  + libllvm13                   13.0.1  hf817b99_2          conda-forge/linux-64      34 MB
+  + libogg                       1.3.5  h27cfd23_1          pkgs/main/linux-64       199 KB
+  + libopenblas                 0.3.17  hf726d26_1          pkgs/main/linux-64         5 MB
+  + libopus                      1.3.1  h7b6447c_0          pkgs/main/linux-64       491 KB
+  + libpng                      1.6.37  hbc83047_0          pkgs/main/linux-64       278 KB
+  + libpq                         14.2  hd57d9b9_0          conda-forge/linux-64       3 MB
+  + libtiff                      4.3.0  h6f004c6_2          conda-forge/linux-64     614 KB
+  + libuuid                      1.0.3  h7f8727e_2          pkgs/main/linux-64        17 KB
+  + libvorbis                    1.3.7  h7b6447c_0          pkgs/main/linux-64       398 KB
+  + libwebp                      1.2.2  h55f646e_0          pkgs/main/linux-64        80 KB
+  + libwebp-base                 1.2.2  h7f8727e_0          pkgs/main/linux-64       440 KB
+  + libxcb                        1.13  h1bed415_1          pkgs/main/linux-64       421 KB
+  + libxkbcommon                 1.0.3  he3ba5ed_0          conda-forge/linux-64     581 KB
+  + libxml2                     2.9.12  h885dcf4_1          conda-forge/linux-64     760 KB
+  + lz4-c                        1.9.3  h295c915_1          pkgs/main/linux-64       185 KB
+  + matplotlib                   3.5.1  py37h06a4308_1      pkgs/main/linux-64        29 KB
+  + matplotlib-base              3.5.1  py37ha18d171_1      pkgs/main/linux-64         6 MB
+  + munkres                      1.1.4  py_0                pkgs/main/noarch          13 KB
+  + mysql-common                8.0.28  ha770c72_0          conda-forge/linux-64       2 MB
+  + mysql-libs                  8.0.28  hfa10184_0          conda-forge/linux-64       2 MB
+  + nspr                          4.33  h295c915_0          pkgs/main/linux-64       222 KB
+  + nss                           3.74  h0370c37_0          pkgs/main/linux-64         2 MB
+  + numexpr                      2.8.1  py37hecfb737_0      pkgs/main/linux-64       124 KB
+  + numpy                       1.21.2  py37hd8d4704_0      pkgs/main/linux-64        23 KB
+  + numpy-base                  1.21.2  py37h2b8c604_0      pkgs/main/linux-64         5 MB
+  + pandas                       1.3.5  py37h8c16a72_0      pkgs/main/linux-64         9 MB
+  + patsy                        0.5.2  py37h06a4308_1      pkgs/main/linux-64       274 KB
+  + pcre                          8.45  h295c915_0          pkgs/main/linux-64       207 KB
+  + pillow                       9.0.1  py37h22f2fdc_0      pkgs/main/linux-64       652 KB
+  + pyqt                        5.12.3  py37h89c1867_8      conda-forge/linux-64      22 KB
+  + pyqt-impl                   5.12.3  py37hac37412_8      conda-forge/linux-64       6 MB
+  + pyqt5-sip                  4.19.18  py37hcd2ae1e_8      conda-forge/linux-64     310 KB
+  + pyqtchart                     5.12  py37he336c9b_8      conda-forge/linux-64     257 KB
+  + pyqtwebengine               5.12.1  py37he336c9b_8      conda-forge/linux-64     175 KB
+  + qt                          5.12.9  ha98a1a1_5          conda-forge/linux-64      99 MB
+  + scipy                        1.7.3  py37h492baa0_0      pkgs/main/linux-64        16 MB
+  + seaborn                     0.11.2  pyhd3eb1b0_0        pkgs/main/noarch         218 KB
+  + statsmodels                 0.13.2  py37h7f8727e_0      pkgs/main/linux-64         9 MB
+  + traittypes                   0.2.1  pyh9f0ad1d_2        conda-forge/noarch        10 KB
+  + zstd                         1.5.2  ha95c52a_0          conda-forge/linux-64     458 KB
+
+  Change:
+─────────────────────────────────────────────────────────────────────────────────────────────
+
+  - ipywidgets                   7.6.5  pyhd8ed1ab_0        installed                      
+  + ipywidgets                   7.6.5  pyhd3eb1b0_1        pkgs/main/noarch         105 KB
+
+  Summary:
+
+  Install: 75 packages
+  Change: 1 packages
+
+  Total download: 237 MB
+
+─────────────────────────────────────────────────────────────────────────────────────────────
+
+Finished cycler                               (00m:00s)              12 KB     70 KB/s
+Finished munkres                              (00m:00s)              13 KB     70 KB/s
+Finished font-ttf-inconsolata                 (00m:00s)              83 KB    427 KB/s
+Finished ipywidgets                           (00m:00s)             105 KB    507 KB/s
+Finished blas                                 (00m:00s)              46 KB    208 KB/s
+Finished pcre                                 (00m:00s)             207 KB    843 KB/s
+Finished lz4-c                                (00m:00s)             185 KB    698 KB/s
+Finished giflib                               (00m:00s)              78 KB    258 KB/s
+Finished libuuid                              (00m:00s)              17 KB     56 KB/s
+Finished jbig                                 (00m:00s)              40 KB    124 KB/s
+Finished libpng                               (00m:00s)             278 KB    750 KB/s
+Finished bottleneck                           (00m:00s)             126 KB    337 KB/s
+Finished libvorbis                            (00m:00s)             398 KB    988 KB/s
+Finished font-ttf-ubuntu                      (00m:00s)               1 MB      2 MB/s
+Finished nss                                  (00m:00s)               2 MB      2 MB/s
+Finished fonttools                            (00m:00s)             632 KB    765 KB/s
+Finished alsa-lib                             (00m:00s)             560 KB    612 KB/s
+Finished gettext                              (00m:00s)               3 MB      2 MB/s
+Finished pillow                               (00m:00s)             652 KB    476 KB/s
+Finished libpq                                (00m:01s)               3 MB      2 MB/s
+Finished pyqtchart                            (00m:00s)             257 KB    169 KB/s
+Finished glib                                 (00m:00s)             430 KB    265 KB/s
+Finished fonts-conda-ecosystem                (00m:00s)               5 KB      3 KB/s
+Finished font-ttf-dejavu-sans-mono            (00m:00s)             335 KB    179 KB/s
+Finished nspr                                 (00m:00s)             222 KB    113 KB/s
+Finished libopus                              (00m:00s)             491 KB    246 KB/s
+Finished libogg                               (00m:00s)             199 KB    100 KB/s
+Finished libgfortran-ng                       (00m:00s)              22 KB     11 KB/s
+Finished gst-plugins-base                     (00m:00s)               3 MB      1 MB/s
+Finished pandas                               (00m:01s)               9 MB      5 MB/s
+Finished patsy                                (00m:00s)             274 KB    129 KB/s
+Finished mysql-common                         (00m:00s)               2 MB    815 KB/s
+Finished pyqt5-sip                            (00m:00s)             310 KB    134 KB/s
+Finished fontconfig                           (00m:00s)             250 KB    100 KB/s
+Finished libxml2                              (00m:00s)             760 KB    304 KB/s
+Finished libclang                             (00m:02s)              11 MB      5 MB/s
+Finished pyqt                                 (00m:00s)              22 KB      8 KB/s
+Finished font-ttf-source-code-pro             (00m:00s)             654 KB    233 KB/s
+Finished brotli                               (00m:00s)             375 KB    133 KB/s
+Finished numpy-base                           (00m:00s)               5 MB      2 MB/s
+Finished numexpr                              (00m:00s)             124 KB     43 KB/s
+Finished freetype                             (00m:00s)             618 KB    213 KB/s
+Finished libwebp                              (00m:00s)              80 KB     27 KB/s
+Finished matplotlib-base                      (00m:00s)               6 MB      2 MB/s
+Finished libxcb                               (00m:00s)             421 KB    136 KB/s
+Finished zstd                                 (00m:00s)             458 KB    141 KB/s
+Finished glib-tools                           (00m:00s)             106 KB     32 KB/s
+Finishe
+
+Looking for: ['ipython', 'ipywidgets', 'matplotlib', 'bqplot', 'numpy', 'scipy', 'pandas', 'seaborn', 'statsmodels', 'matplotlib', 'pip']
+
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Installing pip dependencies: ...working... Ran pip subprocess with arguments:
+['/srv/conda/envs/notebook/bin/python', '-m', 'pip', 'install', '-U', '-r', '/home/jovyan/condaenv.nq3zg5ck.requirements.txt']
+Pip subprocess output:
+Collecting nbinteract
+  Downloading nbinteract-0.2.6-py3-none-any.whl (29 kB)
+Collecting datascience
+  Downloading datascience-0.17.0.tar.gz (721 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting bqplot==0.11.0
+  Downloading bqplot-0.11.0-py2.py3-none-any.whl (1.5 MB)
+Requirement already satisfied: ipywidgets<8,>=7.5.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (7.6.5)
+Collecting nbformat<5,>=4.4.0
+  Downloading nbformat-4.4.0-py2.py3-none-any.whl (155 kB)
+Collecting docopt<1,>=0.6.2
+  Downloading docopt-0.6.2.tar.gz (25 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: numpy<2,>=1 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (1.21.2)
+Collecting traitlets<5,>=4.3
+  Downloading traitlets-4.3.3-py2.py3-none-any.whl (75 kB)
+Collecting Jinja2<3,>=2.10
+  Downloading Jinja2-2.11.3-py2.py3-none-any.whl (125 kB)
+Requirement already satisfied: IPython<8,>=6 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (7.31.1)
+Collecting toolz<1,>=0.8
+  Downloading toolz-0.11.2-py3-none-any.whl (55 kB)
+Requirement already satisfied: nbconvert>=5.3 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (6.0.7)
+Requirement already satisfied: pandas in /srv/conda/envs/notebook/lib/python3.7/site-packages (from bqplot==0.11.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (1.3.5)
+Requirement already satisfied: traittypes>=0.0.6 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from bqplot==0.11.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.2.1)
+Collecting folium>=0.9.1
+  Downloading folium-0.12.1.post1-py2.py3-none-any.whl (95 kB)
+Collecting sphinx
+  Downloading Sphinx-4.5.0-py3-none-any.whl (3.1 MB)
+Requirement already satisfied: setuptools in /srv/conda/envs/notebook/lib/python3.7/site-packages (from datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (60.5.0)
+Requirement already satisfied: matplotlib>=3.0.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (3.5.1)
+Requirement already satisfied: scipy in /srv/conda/envs/notebook/lib/python3.7/site-packages (from datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (1.7.3)
+Collecting plotly
+  Downloading plotly-5.6.0-py2.py3-none-any.whl (27.7 MB)
+Collecting branca
+  Downloading branca-0.4.2-py3-none-any.whl (24 kB)
+Collecting nbsphinx
+  Downloading nbsphinx-0.8.8-py3-none-any.whl (25 kB)
+Collecting pytest
+  Downloading pytest-7.1.1-py3-none-any.whl (297 kB)
+Collecting coverage
+  Downloading coverage-6.3.2-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (207 kB)
+Collecting coveralls
+  Downloading coveralls-3.3.1-py2.py3-none-any.whl (14 kB)
+Collecting bokeh
+  Downloading bokeh-2.4.2-py3-none-any.whl (18.5 MB)
+Requirement already satisfied: requests in /srv/conda/envs/notebook/lib/python3.7/site-packages (from folium>=0.9.1->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (2.27.1)
+Requirement already satisfied: matplotlib-inline in /srv/conda/envs/notebook/lib/python3.7/site-packages (from IPython<8,>=6->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.1.3)
+Requirement already satisfied: decorator in /srv/conda/envs/notebook/lib/python3.7/site-packages (from IPython<8,>=6->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (5.1.1)
+Requirement already satisfied: pickleshare in /srv/conda/envs/notebook/lib/python3.7/site-packages (from IPython<8,>=6->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.7.5)
+Requirement already satisfied: backcall in /srv/conda/envs/notebook/lib/python3.7/site-packages (from IPython<8,>=6->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.2.0)
+Requirement already satisfied: pexpect>4.3 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from IPython<8,>=6->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (4.8.0)
+Requirement already satisfied: pygments in /srv/conda/envs/notebook/lib/python3.7/site-packages (from IPython<8,>=6->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (2.11.2)
+Requirement already satisfied: jedi>=0.16 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from IPython<8,>=6->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.18.1)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from IPython<8,>=6->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (3.0.24)
+Requirement already satisfied: ipykernel>=4.5.1 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (6.7.0)
+Requirement already satisfied: jupyterlab-widgets>=1.0.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (1.0.2)
+Requirement already satisfied: widgetsnbextension~=3.5.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (3.5.2)
+Requirement already satisfied: ipython-genutils~=0.2.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.2.0)
+Requirement already satisfied: MarkupSafe>=0.23 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from Jinja2<3,>=2.10->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (2.0.1)
+Requirement already satisfied: kiwisolver>=1.0.1 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from matplotlib>=3.0.0->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (1.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from matplotlib>=3.0.0->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (2.8.2)
+Requirement already satisfied: pyparsing>=2.2.1 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from matplotlib>=3.0.0->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (3.0.7)
+Requirement already satisfied: packaging>=20.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from matplotlib>=3.0.0->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (21.3)
+Requirement already satisfied: pillow>=6.2.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from matplotlib>=3.0.0->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (9.0.1)
+Requirement already satisfied: cycler>=0.10 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from matplotlib>=3.0.0->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (0.11.0)
+Requirement already satisfied: fonttools>=4.22.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from matplotlib>=3.0.0->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (4.25.0)
+Requirement already satisfied: defusedxml in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbconvert>=5.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.7.1)
+Requirement already satisfied: bleach in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbconvert>=5.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (4.1.0)
+Requirement already satisfied: pandocfilters>=1.4.1 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbconvert>=5.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (1.5.0)
+Requirement already satisfied: entrypoints>=0.2.2 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbconvert>=5.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.3)
+Requirement already satisfied: nbclient<0.6.0,>=0.5.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbconvert>=5.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.5.10)
+Requirement already satisfied: jupyter-core in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbconvert>=5.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (4.9.1)
+Requirement already satisfied: jupyterlab-pygments in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbconvert>=5.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.1.2)
+Requirement already satisfied: mistune<2,>=0.8.1 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbconvert>=5.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.8.4)
+Requirement already satisfied: testpath in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbconvert>=5.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.5.0)
+Requirement already satisfied: jsonschema!=2.5.0,>=2.4 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbformat<5,>=4.4.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (4.4.0)
+Requirement already satisfied: six in /srv/conda/envs/notebook/lib/python3.7/site-packages (from traitlets<5,>=4.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (1.16.0)
+Collecting PyYAML>=3.10
+  Downloading PyYAML-6.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (596 kB)
+Requirement already satisfied: typing-extensions>=3.10.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from bokeh->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (4.0.1)
+Requirement already satisfied: tornado>=5.1 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from bokeh->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (6.1)
+Collecting docutils
+  Downloading docutils-0.18.1-py2.py3-none-any.whl (570 kB)
+  Downloading docutils-0.17.1-py2.py3-none-any.whl (575 kB)
+Collecting snowballstemmer>=1.1
+  Downloading snowballstemmer-2.2.0-py2.py3-none-any.whl (93 kB)
+Collecting imagesize
+  Downloading imagesize-1.3.0-py2.py3-none-any.whl (5.2 kB)
+Collecting sphinxcontrib-applehelp
+  Downloading sphinxcontrib_applehelp-1.0.2-py2.py3-none-any.whl (121 kB)
+Collecting sphinxcontrib-jsmath
+  Downloading sphinxcontrib_jsmath-1.0.1-py2.py3-none-any.whl (5.1 kB)
+Collecting sphinxcontrib-htmlhelp>=2.0.0
+  Downloading sphinxcontrib_htmlhelp-2.0.0-py2.py3-none-any.whl (100 kB)
+Collecting sphinxcontrib-devhelp
+  Downloading sphinxcontrib_devhelp-1.0.2-py2.py3-none-any.whl (84 kB)
+Collecting sphinxcontrib-serializinghtml>=1.1.5
+  Downloading sphinxcontrib_serializinghtml-1.1.5-py2.py3-none-any.whl (94 kB)
+Requirement already satisfied: importlib-metadata>=4.4 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from sphinx->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (4.10.1)
+Collecting sphinxcontrib-qthelp
+  Downloading sphinxcontrib_qthelp-1.0.3-py2.py3-none-any.whl (90 kB)
+Requirement already satisfied: babel>=1.3 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from sphinx->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (2.9.1)
+Collecting alabaster<0.8,>=0.7
+  Downloading alabaster-0.7.12-py2.py3-none-any.whl (14 kB)
+Requirement already satisfied: pytz>=2017.3 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from pandas->bqplot==0.11.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (2021.3)
+Collecting tenacity>=6.2.0
+  Downloading tenacity-8.0.1-py3-none-any.whl (24 kB)
+Collecting iniconfig
+  Downloading iniconfig-1.1.1-py2.py3-none-any.whl (5.0 kB)
+Collecting pluggy<2.0,>=0.12
+  Downloading pluggy-1.0.0-py2.py3-none-any.whl (13 kB)
+Collecting tomli>=1.0.0
+  Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+Collecting py>=1.8.2
+  Downloading py-1.11.0-py2.py3-none-any.whl (98 kB)
+Requirement already satisfied: attrs>=19.2.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from pytest->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (21.4.0)
+Requirement already satisfied: zipp>=0.5 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from importlib-metadata>=4.4->sphinx->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (3.7.0)
+Requirement already satisfied: debugpy<2.0,>=1.0.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from ipykernel>=4.5.1->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (1.5.1)
+Requirement already satisfied: nest-asyncio in /srv/conda/envs/notebook/lib/python3.7/site-packages (from ipykernel>=4.5.1->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (1.5.4)
+Requirement already satisfied: jupyter-client<8.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from ipykernel>=4.5.1->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (7.1.2)
+Collecting ipykernel>=4.5.1
+  Downloading ipykernel-6.12.1-py3-none-any.whl (130 kB)
+  Downloading ipykernel-6.12.0-py3-none-any.whl (130 kB)
+  Downloading ipykernel-6.11.0-py3-none-any.whl (130 kB)
+  Downloading ipykernel-6.10.0-py3-none-any.whl (130 kB)
+Requirement already satisfied: psutil in /srv/conda/envs/notebook/lib/python3.7/site-packages (from ipykernel>=4.5.1->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (5.9.0)
+  Downloading ipykernel-6.9.2-py3-none-any.whl (130 kB)
+  Downloading ipykernel-6.9.1-py3-none-any.whl (128 kB)
+  Downloading ipykernel-6.9.0-py3-none-any.whl (128 kB)
+  Downloading ipykernel-6.8.0-py3-none-any.whl (128 kB)
+  Downloading ipykernel-6.6.1-py3-none-any.whl (126 kB)
+Collecting argcomplete>=1.12.3
+  Downloading argcomplete-2.0.0-py2.py3-none-any.whl (37 kB)
+Collecting ipykernel>=4.5.1
+  Downloading ipykernel-6.6.0-py3-none-any.whl (126 kB)
+  Downloading ipykernel-6.5.1-py3-none-any.whl (125 kB)
+  Downloading ipykernel-6.5.0-py3-none-any.whl (125 kB)
+  Downloading ipykernel-6.4.2-py3-none-any.whl (124 kB)
+Requirement already satisfied: parso<0.9.0,>=0.8.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from jedi>=0.16->IPython<8,>=6->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.8.3)
+Requirement already satisfied: importlib-resources>=1.4.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from jsonschema!=2.5.0,>=2.4->nbformat<5,>=4.4.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (5.4.0)
+Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from jsonschema!=2.5.0,>=2.4->nbformat<5,>=4.4.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.18.1)
+Collecting nbclient<0.6.0,>=0.5.0
+  Downloading nbclient-0.5.13-py3-none-any.whl (70 kB)
+  Downloading nbclient-0.5.12-py3-none-any.whl (71 kB)
+  Downloading nbclient-0.5.11-py3-none-any.whl (71 kB)
+  Downloading nbclient-0.5.9-py3-none-any.whl (69 kB)
+  Downloading nbclient-0.5.5-py3-none-any.whl (69 kB)
+  Downloading nbclient-0.5.4-py3-none-any.whl (66 kB)
+  Downloading nbclient-0.5.3-py3-none-any.whl (82 kB)
+Requirement already satisfied: async-generator in /srv/conda/envs/notebook/lib/python3.7/site-packages (from nbclient<0.6.0,>=0.5.0->nbconvert>=5.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (1.10)
+  Downloading nbclient-0.5.2-py3-none-any.whl (65 kB)
+  Downloading nbclient-0.5.1-py3-none-any.whl (65 kB)
+  Downloading nbclient-0.5.0-py3-none-any.whl (65 kB)
+INFO: pip is looking at multiple versions of mistune to determine which version is compatible with other requirements. This could take a while.
+Collecting mistune<2,>=0.8.1
+  Downloading mistune-0.8.4-py2.py3-none-any.whl (16 kB)
+INFO: pip is looking at multiple versions of matplotlib-inline to determine which version is compatible with other requirements. This could take a while.
+Collecting matplotlib-inline
+  Downloading matplotlib_inline-0.1.3-py3-none-any.whl (8.2 kB)
+INFO: pip is looking at multiple versions of markupsafe to determine which version is compatible with other requirements. This could take a while.
+Collecting MarkupSafe>=0.23
+  Downloading MarkupSafe-2.1.1-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+INFO: pip is looking at multiple versions of kiwisolver to determine which version is compatible with other requirements. This could take a while.
+Collecting kiwisolver>=1.0.1
+  Downloading kiwisolver-1.4.2-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl (1.1 MB)
+INFO: pip is looking at multiple versions of jupyterlab-widgets to determine which version is compatible with other requirements. This could take a while.
+Collecting jupyterlab-widgets>=1.0.0
+  Downloading jupyterlab_widgets-1.1.0-py3-none-any.whl (245 kB)
+INFO: pip is looking at multiple versions of jsonschema to determine which version is compatible with other requirements. This could take a while.
+Collecting jsonschema!=2.5.0,>=2.4
+  Downloading jsonschema-4.4.0-py3-none-any.whl (72 kB)
+INFO: pip is looking at multiple versions of jedi to determine which version is compatible with other requirements. This could take a while.
+Collecting jedi>=0.16
+  Downloading jedi-0.18.1-py2.py3-none-any.whl (1.6 MB)
+INFO: pip is looking at multiple versions of ipython-genutils to determine which version is compatible with other requirements. This could take a while.
+Collecting ipython-genutils~=0.2.0
+  Downloading ipython_genutils-0.2.0-py2.py3-none-any.whl (26 kB)
+INFO: pip is looking at multiple versions of ipykernel to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of importlib-metadata to determine which version is compatible with other requirements. This could take a while.
+Collecting importlib-metadata>=4.4
+  Downloading importlib_metadata-4.11.3-py3-none-any.whl (18 kB)
+INFO: pip is looking at multiple versions of fonttools to determine which version is compatible with other requirements. This could take a while.
+Collecting fonttools>=4.22.0
+  Downloading fonttools-4.31.2-py3-none-any.whl (899 kB)
+INFO: pip is looking at multiple versions of entrypoints to determine which version is compatible with other requirements. This could take a while.
+Collecting entrypoints>=0.2.2
+  Downloading entrypoints-0.4-py3-none-any.whl (5.3 kB)
+INFO: pip is looking at multiple versions of docutils to determine which version is compatible with other requirements. This could take a while.
+Collecting docutils
+  Downloading docutils-0.17-py2.py3-none-any.whl (575 kB)
+INFO: pip is looking at multiple versions of cycler to determine which version is compatible with other requirements. This could take a while.
+Collecting cycler>=0.10
+  Downloading cycler-0.11.0-py3-none-any.whl (6.4 kB)
+INFO: pip is looking at multiple versions of babel to determine which version is compatible with other requirements. This could take a while.
+Collecting babel>=1.3
+  Downloading Babel-2.9.1-py2.py3-none-any.whl (8.8 MB)
+INFO: pip is looking at multiple versions of attrs to determine which version is compatible with other requirements. This could take a while.
+Collecting attrs>=19.2.0
+  Downloading attrs-21.4.0-py2.py3-none-any.whl (60 kB)
+INFO: pip is looking at multiple versions of alabaster to determine which version is compatible with other requirements. This could take a while.
+Collecting alabaster<0.8,>=0.7
+  Downloading alabaster-0.7.11-py2.py3-none-any.whl (14 kB)
+INFO: pip is looking at multiple versions of scipy to determine which version is compatible with other requirements. This could take a while.
+Collecting scipy
+  Downloading scipy-1.7.3-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (38.1 MB)
+INFO: pip is looking at multiple versions of pytest to determine which version is compatible with other requirements. This could take a while.
+Collecting pytest
+  Downloading pytest-7.1.0-py3-none-any.whl (297 kB)
+INFO: pip is looking at multiple versions of plotly to determine which version is compatible with other requirements. This could take a while.
+Collecting plotly
+  Downloading plotly-5.5.0-py2.py3-none-any.whl (26.5 MB)
+INFO: pip is looking at multiple versions of pandas to determine which version is compatible with other requirements. This could take a while.
+Collecting pandas
+  Downloading pandas-1.3.5-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.3 MB)
+INFO: pip is looking at multiple versions of sphinx to determine which version is compatible with other requirements. This could take a while.
+Collecting sphinx
+  Downloading Sphinx-4.4.0-py3-none-any.whl (3.1 MB)
+INFO: pip is looking at multiple versions of nbsphinx to determine which version is compatible with other requirements. This could take a while.
+Collecting nbsphinx
+  Downloading nbsphinx-0.8.7-py3-none-any.whl (25 kB)
+  Downloading nbsphinx-0.8.6-py3-none-any.whl (24 kB)
+  Downloading nbsphinx-0.8.5-py3-none-any.whl (24 kB)
+  Downloading nbsphinx-0.8.4-py3-none-any.whl (24 kB)
+  Downloading nbsphinx-0.8.3-py3-none-any.whl (24 kB)
+  Downloading nbsphinx-0.8.2-py3-none-any.whl (24 kB)
+  Downloading nbsphinx-0.8.1-py3-none-any.whl (24 kB)
+INFO: pip is looking at multiple versions of nbsphinx to determine which version is compatible with other requirements. This could take a while.
+  Downloading nbsphinx-0.8.0-py3-none-any.whl (24 kB)
+  Downloading nbsphinx-0.7.1-py3-none-any.whl (24 kB)
+  Downloading nbsphinx-0.7.0-py3-none-any.whl (24 kB)
+  Downloading nbsphinx-0.6.1-py3-none-any.whl (23 kB)
+  Downloading nbsphinx-0.6.0-py3-none-any.whl (23 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Downloading nbsphinx-0.5.1-py2.py3-none-any.whl (21 kB)
+  Downloading nbsphinx-0.5.0-py2.py3-none-any.whl (20 kB)
+  Downloading nbsphinx-0.4.3-py2.py3-none-any.whl (20 kB)
+  Downloading nbsphinx-0.4.2-py2.py3-none-any.whl (20 kB)
+  Downloading nbsphinx-0.4.1-py2.py3-none-any.whl (19 kB)
+  Downloading nbsphinx-0.4.0-py2.py3-none-any.whl (19 kB)
+  Downloading nbsphinx-0.3.5-py2.py3-none-any.whl (18 kB)
+  Downloading nbsphinx-0.3.4-py2.py3-none-any.whl (18 kB)
+  Downloading nbsphinx-0.3.3-py2.py3-none-any.whl (17 kB)
+  Downloading nbsphinx-0.3.2-py2.py3-none-any.whl (17 kB)
+  Downloading nbsphinx-0.3.1-py2.py3-none-any.whl (17 kB)
+  Downloading nbsphinx-0.3.0-py2.py3-none-any.whl (16 kB)
+  Downloading nbsphinx-0.2.18-py2.py3-none-any.whl (16 kB)
+  Downloading nbsphinx-0.2.17-py2.py3-none-any.whl (16 kB)
+  Downloading nbsphinx-0.2.16-py2.py3-none-any.whl (16 kB)
+  Downloading nbsphinx-0.2.15-py2.py3-none-any.whl (16 kB)
+  Downloading nbsphinx-0.2.14-py2.py3-none-any.whl (16 kB)
+  Downloading nbsphinx-0.2.13-py2.py3-none-any.whl (15 kB)
+  Downloading nbsphinx-0.2.12-py2.py3-none-any.whl (15 kB)
+  Downloading nbsphinx-0.2.11-py2.py3-none-any.whl (15 kB)
+  Downloading nbsphinx-0.2.10-py2.py3-none-any.whl (15 kB)
+  Downloading nbsphinx-0.2.9-py2.py3-none-any.whl (14 kB)
+  Downloading nbsphinx-0.2.8-py2.py3-none-any.whl (14 kB)
+  Downloading nbsphinx-0.2.7-py2.py3-none-any.whl (14 kB)
+  Downloading nbsphinx-0.2.6-py2.py3-none-any.whl (12 kB)
+  Downloading nbsphinx-0.2.5-py2.py3-none-any.whl (11 kB)
+  Downloading nbsphinx-0.2.4-py2.py3-none-any.whl (33 kB)
+  Downloading nbsphinx-0.2.3-py2.py3-none-any.whl (30 kB)
+  Downloading nbsphinx-0.2.2-py2.py3-none-any.whl (27 kB)
+  Downloading nbsphinx-0.2.1-py2.py3-none-any.whl (25 kB)
+  Downloading nbsphinx-0.2.0-py2.py3-none-any.whl (24 kB)
+INFO: pip is looking at multiple versions of coveralls to determine which version is compatible with other requirements. This could take a while.
+Collecting coveralls
+  Downloading coveralls-3.3.0-py2.py3-none-any.whl (14 kB)
+INFO: pip is looking at multiple versions of coverage to determine which version is compatible with other requirements. This could take a while.
+Collecting coverage
+  Downloading coverage-6.3.1-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (207 kB)
+INFO: pip is looking at multiple versions of bokeh to determine which version is compatible with other requirements. This could take a while.
+Collecting bokeh
+  Downloading bokeh-2.4.1-py3-none-any.whl (18.5 MB)
+INFO: pip is looking at multiple versions of traitlets to determine which version is compatible with other requirements. This could take a while.
+Collecting traitlets<5,>=4.3
+  Downloading traitlets-4.3.2-py2.py3-none-any.whl (74 kB)
+INFO: pip is looking at multiple versions of toolz to determine which version is compatible with other requirements. This could take a while.
+Collecting toolz<1,>=0.8
+  Downloading toolz-0.11.1-py3-none-any.whl (55 kB)
+INFO: pip is looking at multiple versions of numpy to determine which version is compatible with other requirements. This could take a while.
+Collecting numpy<2,>=1
+  Downloading numpy-1.21.5-cp37-cp37m-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (15.7 MB)
+INFO: pip is looking at multiple versions of nbformat to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of nbconvert to determine which version is compatible with other requirements. This could take a while.
+Collecting nbconvert>=5.3
+  Downloading nbconvert-6.4.5-py3-none-any.whl (561 kB)
+Collecting beautifulsoup4
+  Downloading beautifulsoup4-4.10.0-py3-none-any.whl (97 kB)
+Collecting nbconvert>=5.3
+  Downloading nbconvert-6.4.4-py3-none-any.whl (561 kB)
+  Downloading nbconvert-6.4.3-py3-none-any.whl (560 kB)
+  Downloading nbconvert-6.4.2-py3-none-any.whl (558 kB)
+  Downloading nbconvert-6.4.1-py3-none-any.whl (557 kB)
+  Downloading nbconvert-6.4.0-py3-none-any.whl (557 kB)
+  Downloading nbconvert-6.3.0-py3-none-any.whl (556 kB)
+  Downloading nbconvert-6.2.0-py3-none-any.whl (553 kB)
+  Downloading nbconvert-6.1.0-py3-none-any.whl (551 kB)
+  Downloading nbconvert-6.0.7-py3-none-any.whl (552 kB)
+  Downloading nbconvert-6.0.6-py3-none-any.whl (551 kB)
+  Downloading nbconvert-6.0.5-py3-none-any.whl (505 kB)
+  Downloading nbconvert-6.0.4-py3-none-any.whl (505 kB)
+  Downloading nbconvert-6.0.3-py3-none-any.whl (505 kB)
+  Downloading nbconvert-6.0.2-py3-none-any.whl (504 kB)
+  Downloading nbconvert-6.0.1-py3-none-any.whl (502 kB)
+INFO: pip is looking at multiple versions of nbformat to determine which version is compatible with other requirements. This could take a while.
+INFO: pip is looking at multiple versions of nbconvert to determine which version is compatible with other requirements. This could take a while.
+  Downloading nbconvert-6.0.0-py3-none-any.whl (502 kB)
+  Downloading nbconvert-5.6.1-py2.py3-none-any.whl (455 kB)
+Requirement already satisfied: ptyprocess>=0.5 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from pexpect>4.3->IPython<8,>=6->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.7.0)
+Requirement already satisfied: wcwidth in /srv/conda/envs/notebook/lib/python3.7/site-packages (from prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0->IPython<8,>=6->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.2.5)
+Requirement already satisfied: certifi>=2017.4.17 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from requests->folium>=0.9.1->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (2021.10.8)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from requests->folium>=0.9.1->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (2.0.10)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from requests->folium>=0.9.1->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (1.26.8)
+Requirement already satisfied: idna<4,>=2.5 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from requests->folium>=0.9.1->datascience->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 2)) (3.3)
+Requirement already satisfied: notebook>=4.4.1 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from widgetsnbextension~=3.5.0->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (6.3.0)
+Requirement already satisfied: webencodings in /srv/conda/envs/notebook/lib/python3.7/site-packages (from bleach->nbconvert>=5.3->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.5.1)
+Requirement already satisfied: pyzmq>=13 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from jupyter-client<8.0->ipykernel>=4.5.1->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (22.3.0)
+Requirement already satisfied: prometheus-client in /srv/conda/envs/notebook/lib/python3.7/site-packages (from notebook>=4.4.1->widgetsnbextension~=3.5.0->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.13.0)
+Requirement already satisfied: terminado>=0.8.3 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from notebook>=4.4.1->widgetsnbextension~=3.5.0->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (0.12.1)
+Requirement already satisfied: Send2Trash>=1.5.0 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from notebook>=4.4.1->widgetsnbextension~=3.5.0->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (1.8.0)
+Requirement already satisfied: argon2-cffi in /srv/conda/envs/notebook/lib/python3.7/site-packages (from notebook>=4.4.1->widgetsnbextension~=3.5.0->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (21.3.0)
+Requirement already satisfied: argon2-cffi-bindings in /srv/conda/envs/notebook/lib/python3.7/site-packages (from argon2-cffi->notebook>=4.4.1->widgetsnbextension~=3.5.0->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (21.2.0)
+Requirement already satisfied: cffi>=1.0.1 in /srv/conda/envs/notebook/lib/python3.7/site-packages (from argon2-cffi-bindings->argon2-cffi->notebook>=4.4.1->widgetsnbextension~=3.5.0->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (1.15.0)
+Requirement already satisfied: pycparser in /srv/conda/envs/notebook/lib/python3.7/site-packages (from cffi>=1.0.1->argon2-cffi-bindings->argon2-cffi->notebook>=4.4.1->widgetsnbextension~=3.5.0->ipywidgets<8,>=7.5.0->nbinteract->-r /home/jovyan/condaenv.nq3zg5ck.requirements.txt (line 1)) (2.21)
+Building wheels for collected packages: datascience, docopt
+  Building wheel for datascience (setup.py): started
+  Building wheel for datascience (setup.py): finished with status 'done'
+  Created wheel for datascience: filename=datascience-0.17.0-py3-none-any.whl size=726848 sha256=ec35b3b26d1eac2be875e990f01b8613b1baffb137af0fa15ee0b12b1044d3d5
+  Stored in directory: /home/jovyan/.cache/pip/wheels/41/e0/1b/bc890a517ad4212eb7180ccca6497c97d0ca7c28342b236888
+  Building wheel for docopt (setup.py): started
+  Building wheel for docopt (setup.py): finished with status 'done'
+  Created wheel for docopt: filename=docopt-0.6.2-py2.py3-none-any.whl size=13723 sha256=bc9de5703f02ecae5f3bc653cf06e7af59bb37647a93302ce7131e88e84fb75b
+  Stored in directory: /home/jovyan/.cache/pip/wheels/72/b0/3f/1d95f96ff986c7dfffe46ce2be4062f38ebd04b506c77c81b9
+Successfully built datascience docopt
+Installing collected packages: traitlets, nbformat, Jinja2, argcomplete, nbconvert, ipykernel, sphinxcontrib-serializinghtml, sphinxcontrib-qthelp, sphinxcontrib-jsmath, sphinxcontrib-htmlhelp, sphinxcontrib-devhelp, sphinxcontrib-applehelp, snowballstemmer, imagesize, docutils, alabaster, tomli, tenacity, sphinx, PyYAML, py, pluggy, iniconfig, docopt, coverage, branca, toolz, pytest, plotly, nbsphinx, folium, coveralls, bqplot, bokeh, nbinteract, datascience
+  Attempting uninstall: traitlets
+    Found existing installation: traitlets 5.1.1
+    Uninstalling traitlets-5.1.1:
+      Successfully uninstalled traitlets-5.1.1
+  Attempting uninstall: nbformat
+    Found existing installation: nbformat 5.1.3
+    Uninstalling nbformat-5.1.3:
+      Successfully uninstalled nbformat-5.1.3
+  Attempting uninstall: Jinja2
+    Found existing installation: Jinja2 3.0.3
+    Uninstalling Jinja2-3.0.3:
+      Successfully uninstalled Jinja2-3.0.3
+  Attempting uninstall: nbconvert
+    Found existing installation: nbconvert 6.0.7
+    Uninstalling nbconvert-6.0.7:
+      Successfully uninstalled nbconvert-6.0.7
+  Attempting uninstall: ipykernel
+    Found existing installation: ipykernel 6.7.0
+    Uninstalling ipykernel-6.7.0:
+      Successfully uninstalled ipykernel-6.7.0
+  Attempting uninstall: bqplot
+    Found existing installation: bqplot 0.12.33
+    Uninstalling bqplot-0.12.33:
+      Successfully uninstalled bqplot-0.12.33
+Successfully installed Jinja2-2.11.3 PyYAML-6.0 alabaster-0.7.12 argcomplete-2.0.0 bokeh-2.4.2 bqplot-0.11.0 branca-0.4.2 coverage-6.3.2 coveralls-3.3.1 datascience-0.17.0 docopt-0.6.2 docutils-0.17.1 folium-0.12.1.post1 imagesize-1.3.0 iniconfig-1.1.1 ipykernel-6.4.2 nbconvert-5.6.1 nbformat-4.4.0 nbinteract-0.2.6 nbsphinx-0.8.8 plotly-5.6.0 pluggy-1.0.0 py-1.11.0 pytest-7.1.1 snowballstemmer-2.2.0 sphinx-4.5.0 sphinxcontrib-applehelp-1.0.2 sphinxcontrib-devhelp-1.0.2 sphinxcontrib-htmlhelp-2.0.0 sphinxcontrib-jsmath-1.0.1 sphinxcontrib-qthelp-1.0.3 sphinxcontrib-serializinghtml-1.1.5 tenacity-8.0.1 tomli-2.0.1 toolz-0.11.2 traitlets-4.3.3
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate /srv/conda/envs/notebook
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+d traittypes                           (00m:00s)              10 KB      3 KB/s
+Finished libiconv                             (00m:00s)               1 MB    410 KB/s
+Finished kiwisolver                           (00m:00s)              80 KB     23 KB/s
+Finished lerc                                 (00m:00s)             196 KB     53 KB/s
+Finished mysql-libs                           (00m:00s)               2 MB    447 KB/s
+Finished matplotlib                           (00m:00s)              29 KB      6 KB/s
+Finished libopenblas                          (00m:01s)               5 MB      1 MB/s
+Finished jpeg                                 (00m:00s)             232 KB     51 KB/s
+Finished pyqt-impl                            (00m:01s)               6 MB      1 MB/s
+Finished libglib                              (00m:01s)               3 MB    683 KB/s
+Finished libdeflate                           (00m:00s)              51 KB     11 KB/s
+Finished libxkbcommon                         (00m:00s)             581 KB    118 KB/s
+Finished dbus                                 (00m:00s)             504 KB    102 KB/s
+Finished libgfortran4                         (00m:00s)             995 KB    198 KB/s
+Finished numpy                                (00m:00s)              23 KB      4 KB/s
+Finished lcms2                                (00m:00s)             312 KB     61 KB/s
+Finished fonts-anaconda                       (00m:00s)               3 KB    548  B/s
+Finished gstreamer                            (00m:00s)               2 MB    343 KB/s
+Finished expat                                (00m:00s)             169 KB     31 KB/s
+Finished libwebp-base                         (00m:00s)             440 KB     77 KB/s
+Finished statsmodels                          (00m:01s)               9 MB      2 MB/s
+Finished libtiff                              (00m:00s)             614 KB    105 KB/s
+Finished pyqtwebengine                        (00m:00s)             175 KB     29 KB/s
+Finished seaborn                              (00m:00s)             218 KB     36 KB/s
+Finished libevent                             (00m:00s)               1 MB    185 KB/s
+Finished bqplot                               (00m:00s)               1 MB    164 KB/s
+Finished scipy                                (00m:01s)              16 MB      3 MB/s
+Finished libllvm13                            (00m:02s)              34 MB      5 MB/s
+Finished qt                                   (00m:07s)              99 MB     12 MB/s
+time: 140.172
+
+                  __    __    __    __
+                 /  \  /  \  /  \  /  \
+                /    \/    \/    \/    \
+███████████████/  /██/  /██/  /██/  /████████████████████████
+              /  / \   / \   / \   / \  \____
+             /  /   \_/   \_/   \_/   \    o \__,
+            / _/                       \_____/  `
+            |/
+        ███╗   ███╗ █████╗ ███╗   ███╗██████╗  █████╗
+        ████╗ ████║██╔══██╗████╗ ████║██╔══██╗██╔══██╗
+        ██╔████╔██║███████║██╔████╔██║██████╔╝███████║
+        ██║╚██╔╝██║██╔══██║██║╚██╔╝██║██╔══██╗██╔══██║
+        ██║ ╚═╝ ██║██║  ██║██║ ╚═╝ ██║██████╔╝██║  ██║
+        ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝ ╚═╝  ╚═╝
+
+        mamba (0.19.1) supported by @QuantStack
+
+        GitHub:  https://github.com/mamba-org/mamba
+        Twitter: https://twitter.com/QuantStack
+
+█████████████████████████████████████████████████████████████
+
+Remove all contents from the following package caches?
+  - /srv/conda/pkgs
+time: 1.337
+# packages in environment at /srv/conda/envs/notebook:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                 conda_forge    conda-forge
+_openmp_mutex             4.5                       1_gnu    conda-forge
+alabaster                 0.7.12                   pypi_0    pypi
+alembic                   1.7.5              pyhd8ed1ab_0    conda-forge
+alsa-lib                  1.2.3                h516909a_0    conda-forge
+anyio                     3.5.0            py37h89c1867_0    conda-forge
+argcomplete               2.0.0                    pypi_0    pypi
+argon2-cffi               21.3.0             pyhd8ed1ab_0    conda-forge
+argon2-cffi-bindings      21.2.0           py37h5e8e339_1    conda-forge
+async_generator           1.10                       py_0    conda-forge
+attrs                     21.4.0             pyhd8ed1ab_0    conda-forge
+babel                     2.9.1              pyh44b312d_0    conda-forge
+backcall                  0.2.0              pyh9f0ad1d_0    conda-forge
+backports                 1.0                        py_2    conda-forge
+backports.functools_lru_cache 1.6.4              pyhd8ed1ab_0    conda-forge
+blas                      1.0                    openblas    defaults
+bleach                    4.1.0              pyhd8ed1ab_0    conda-forge
+blinker                   1.4                        py_1    conda-forge
+bokeh                     2.4.2                    pypi_0    pypi
+bottleneck                1.3.4            py37hce1f21e_0    defaults
+bqplot                    0.11.0                   pypi_0    pypi
+branca                    0.4.2                    pypi_0    pypi
+brotli                    1.0.9                he6710b0_2    defaults
+brotlipy                  0.7.0           py37h5e8e339_1003    conda-forge
+c-ares                    1.18.1               h7f98852_0    conda-forge
+ca-certificates           2021.10.8            ha878542_0    conda-forge
+certifi                   2021.10.8        py37h89c1867_1    conda-forge
+certipy                   0.1.3                      py_0    conda-forge
+cffi                      1.15.0           py37h036bc23_0    conda-forge
+charset-normalizer        2.0.10             pyhd8ed1ab_0    conda-forge
+coverage                  6.3.2                    pypi_0    pypi
+coveralls                 3.3.1                    pypi_0    pypi
+cryptography              36.0.1           py37hf1a17b8_0    conda-forge
+cycler                    0.11.0             pyhd3eb1b0_0    defaults
+datascience               0.17.0                   pypi_0    pypi
+dbus                      1.13.18              hb2f20db_0    defaults
+debugpy                   1.5.1            py37hcd2ae1e_0    conda-forge
+decorator                 5.1.1              pyhd8ed1ab_0    conda-forge
+defusedxml                0.7.1              pyhd8ed1ab_0    conda-forge
+docopt                    0.6.2                    pypi_0    pypi
+docutils                  0.17.1                   pypi_0    pypi
+entrypoints               0.3             pyhd8ed1ab_1003    conda-forge
+expat                     2.4.4                h295c915_0    defaults
+flit-core                 3.6.0              pyhd8ed1ab_0    conda-forge
+folium                    0.12.1.post1             pypi_0    pypi
+font-ttf-dejavu-sans-mono 2.37                 hd3eb1b0_0    defaults
+font-ttf-inconsolata      2.001                hcb22688_0    defaults
+font-ttf-source-code-pro  2.030                hd3eb1b0_0    defaults
+font-ttf-ubuntu           0.83                 h8b1ccd4_0    defaults
+fontconfig                2.13.1               h6c09931_0    defaults
+fonts-anaconda            1                    h8fa9717_0    defaults
+fonts-conda-ecosystem     1                    hd3eb1b0_0    defaults
+fonttools                 4.25.0             pyhd3eb1b0_0    defaults
+freetype                  2.11.0               h70c0345_0    defaults
+gettext                   0.21.0               hf68c758_0    defaults
+giflib                    5.2.1                h7b6447c_0    defaults
+glib                      2.70.2               h780b84a_4    conda-forge
+glib-tools                2.70.2               h780b84a_4    conda-forge
+greenlet                  1.1.2            py37hcd2ae1e_1    conda-forge
+gst-plugins-base          1.18.5               hf529b03_3    conda-forge
+gstreamer                 1.18.5               ha1a6a79_0    defaults
+icu                       69.1                 h9c3ff4c_0    conda-forge
+idna                      3.3                pyhd8ed1ab_0    conda-forge
+imagesize                 1.3.0                    pypi_0    pypi
+importlib-metadata        4.10.1           py37h89c1867_0    conda-forge
+importlib_resources       5.4.0              pyhd8ed1ab_0    conda-forge
+iniconfig                 1.1.1                    pypi_0    pypi
+ipykernel                 6.4.2                    pypi_0    pypi
+ipython                   7.31.1           py37h89c1867_0    conda-forge
+ipython_genutils          0.2.0                      py_1    conda-forge
+ipywidgets                7.6.5              pyhd3eb1b0_1    defaults
+jbig                      2.1                  hdba287a_0    defaults
+jedi                      0.18.1           py37h89c1867_0    conda-forge
+jinja2                    2.11.3                   pypi_0    pypi
+jpeg                      9d                   h7f8727e_0    defaults
+json5                     0.9.5              pyh9f0ad1d_0    conda-forge
+jsonschema                4.4.0              pyhd8ed1ab_0    conda-forge
+jupyter-offlinenotebook   0.2.2              pyh1d7be83_0    conda-forge
+jupyter-resource-usage    0.6.1              pyhd8ed1ab_0    conda-forge
+jupyter_client            7.1.2              pyhd8ed1ab_0    conda-forge
+jupyter_core              4.9.1            py37h89c1867_1    conda-forge
+jupyter_server            1.13.4             pyhd8ed1ab_0    conda-forge
+jupyter_telemetry         0.1.0              pyhd8ed1ab_1    conda-forge
+jupyterhub-base           1.4.2            py37h89c1867_0    conda-forge
+jupyterhub-singleuser     1.4.2            py37h89c1867_0    conda-forge
+jupyterlab                3.2.8              pyhd8ed1ab_0    conda-forge
+jupyterlab_pygments       0.1.2              pyh9f0ad1d_0    conda-forge
+jupyterlab_server         2.10.3             pyhd8ed1ab_0    conda-forge
+jupyterlab_widgets        1.0.2              pyhd8ed1ab_0    conda-forge
+kiwisolver                1.3.2            py37h295c915_0    defaults
+krb5                      1.19.2               hcc1bbae_3    conda-forge
+lcms2                     2.12                 h3be6417_0    defaults
+ld_impl_linux-64          2.36.1               hea4e1c9_2    conda-forge
+lerc                      3.0                  h295c915_0    defaults
+libclang                  13.0.1          default_hc23dcda_0    conda-forge
+libcurl                   7.81.0               h2574ce0_0    conda-forge
+libdeflate                1.8                  h7f8727e_5    defaults
+libedit                   3.1.20191231         he28a2e2_2    conda-forge
+libev                     4.33                 h516909a_1    conda-forge
+libevent                  2.1.10               h9b69904_4    conda-forge
+libffi                    3.4.2                h7f98852_5    conda-forge
+libgcc-ng                 11.2.0              h1d223b6_12    conda-forge
+libgfortran-ng            7.5.0               ha8ba4b0_17    defaults
+libgfortran4              7.5.0               ha8ba4b0_17    defaults
+libglib                   2.70.2               h174f98d_4    conda-forge
+libgomp                   11.2.0              h1d223b6_12    conda-forge
+libiconv                  1.16                 h516909a_0    conda-forge
+libllvm13                 13.0.1               hf817b99_2    conda-forge
+libnghttp2                1.43.0               h812cca2_1    conda-forge
+libnsl                    2.0.0                h7f98852_0    conda-forge
+libogg                    1.3.5                h27cfd23_1    defaults
+libopenblas               0.3.17               hf726d26_1    defaults
+libopus                   1.3.1                h7b6447c_0    defaults
+libpng                    1.6.37               hbc83047_0    defaults
+libpq                     14.2                 hd57d9b9_0    conda-forge
+libsodium                 1.0.18               h36c2ea0_1    conda-forge
+libssh2                   1.10.0               ha56f1ee_2    conda-forge
+libstdcxx-ng              11.2.0              he4da1e4_12    conda-forge
+libtiff                   4.3.0                h6f004c6_2    conda-forge
+libuuid                   1.0.3                h7f8727e_2    defaults
+libuv                     1.43.0               h7f98852_0    conda-forge
+libvorbis                 1.3.7                h7b6447c_0    defaults
+libwebp                   1.2.2                h55f646e_0    defaults
+libwebp-base              1.2.2                h7f8727e_0    defaults
+libxcb                    1.13                 h1bed415_1    defaults
+libxkbcommon              1.0.3                he3ba5ed_0    conda-forge
+libxml2                   2.9.12               h885dcf4_1    conda-forge
+libzlib                   1.2.11            h36c2ea0_1013    conda-forge
+lz4-c                     1.9.3                h295c915_1    defaults
+mako                      1.1.6              pyhd8ed1ab_0    conda-forge
+markupsafe                2.0.1            py37h5e8e339_1    conda-forge
+matplotlib                3.5.1            py37h06a4308_1    defaults
+matplotlib-base           3.5.1            py37ha18d171_1    defaults
+matplotlib-inline         0.1.3              pyhd8ed1ab_0    conda-forge
+mistune                   0.8.4           py37h5e8e339_1005    conda-forge
+munkres                   1.1.4                      py_0    defaults
+mysql-common              8.0.28               ha770c72_0    conda-forge
+mysql-libs                8.0.28               hfa10184_0    conda-forge
+nbclassic                 0.3.5              pyhd8ed1ab_0    conda-forge
+nbclient                  0.5.10             pyhd8ed1ab_1    conda-forge
+nbconvert                 5.6.1                    pypi_0    pypi
+nbformat                  4.4.0                    pypi_0    pypi
+nbinteract                0.2.6                    pypi_0    pypi
+nbsphinx                  0.8.8                    pypi_0    pypi
+ncurses                   6.3                  h9c3ff4c_0    conda-forge
+nest-asyncio              1.5.4              pyhd8ed1ab_0    conda-forge
+nodejs                    14.18.3              h8ca31f7_2    conda-forge
+notebook                  6.3.0              pyha770c72_1    conda-forge
+nspr                      4.33                 h295c915_0    defaults
+nss                       3.74                 h0370c37_0    defaults
+nteract_on_jupyter        2.1.3                      py_0    conda-forge
+numexpr                   2.8.1            py37hecfb737_0    defaults
+numpy                     1.21.2           py37hd8d4704_0    defaults
+numpy-base                1.21.2           py37h2b8c604_0    defaults
+oauthlib                  3.1.1              pyhd8ed1ab_0    conda-forge
+openssl                   1.1.1l               h7f98852_0    conda-forge
+packaging                 21.3               pyhd8ed1ab_0    conda-forge
+pamela                    1.0.0                      py_0    conda-forge
+pandas                    1.3.5            py37h8c16a72_0    defaults
+pandoc                    2.17.0.1             h7f98852_0    conda-forge
+pandocfilters             1.5.0              pyhd8ed1ab_0    conda-forge
+parso                     0.8.3              pyhd8ed1ab_0    conda-forge
+patsy                     0.5.2            py37h06a4308_1    defaults
+pcre                      8.45                 h295c915_0    defaults
+pexpect                   4.8.0              pyh9f0ad1d_2    conda-forge
+pickleshare               0.7.5                   py_1003    conda-forge
+pillow                    9.0.1            py37h22f2fdc_0    defaults
+pip                       21.3.1             pyhd8ed1ab_0    conda-forge
+plotly                    5.6.0                    pypi_0    pypi
+pluggy                    1.0.0                    pypi_0    pypi
+prometheus_client         0.13.0             pyhd8ed1ab_0    conda-forge
+prompt-toolkit            3.0.24             pyha770c72_0    conda-forge
+psutil                    5.9.0            py37h5e8e339_0    conda-forge
+ptyprocess                0.7.0              pyhd3deb0d_0    conda-forge
+py                        1.11.0                   pypi_0    pypi
+pycparser                 2.21               pyhd8ed1ab_0    conda-forge
+pycurl                    7.44.1           py37h88a64d2_1    conda-forge
+pygments                  2.11.2             pyhd8ed1ab_0    conda-forge
+pyjwt                     2.3.0              pyhd8ed1ab_1    conda-forge
+pyopenssl                 21.0.0             pyhd8ed1ab_0    conda-forge
+pyparsing                 3.0.7              pyhd8ed1ab_0    conda-forge
+pyqt                      5.12.3           py37h89c1867_8    conda-forge
+pyqt-impl                 5.12.3           py37hac37412_8    conda-forge
+pyqt5-sip                 4.19.18          py37hcd2ae1e_8    conda-forge
+pyqtchart                 5.12             py37he336c9b_8    conda-forge
+pyqtwebengine             5.12.1           py37he336c9b_8    conda-forge
+pyrsistent                0.18.1           py37h5e8e339_0    conda-forge
+pysocks                   1.7.1            py37h89c1867_4    conda-forge
+pytest                    7.1.1                    pypi_0    pypi
+python                    3.7.12          hb7a2778_100_cpython    conda-forge
+python-dateutil           2.8.2              pyhd8ed1ab_0    conda-forge
+python-json-logger        2.0.1              pyh9f0ad1d_0    conda-forge
+python_abi                3.7                     2_cp37m    conda-forge
+pytz                      2021.3             pyhd8ed1ab_0    conda-forge
+pyyaml                    6.0                      pypi_0    pypi
+pyzmq                     22.3.0           py37h336d617_1    conda-forge
+qt                        5.12.9               ha98a1a1_5    conda-forge
+readline                  8.1                  h46c0cb4_0    conda-forge
+requests                  2.27.1             pyhd8ed1ab_0    conda-forge
+ruamel.yaml               0.17.19          py37h5e8e339_0    conda-forge
+ruamel.yaml.clib          0.2.6            py37h5e8e339_0    conda-forge
+scipy                     1.7.3            py37h492baa0_0    defaults
+seaborn                   0.11.2             pyhd3eb1b0_0    defaults
+send2trash                1.8.0              pyhd8ed1ab_0    conda-forge
+setuptools                60.5.0           py37h89c1867_0    conda-forge
+six                       1.16.0             pyh6c4a22f_0    conda-forge
+sniffio                   1.2.0            py37h89c1867_2    conda-forge
+snowballstemmer           2.2.0                    pypi_0    pypi
+sphinx                    4.5.0                    pypi_0    pypi
+sphinxcontrib-applehelp   1.0.2                    pypi_0    pypi
+sphinxcontrib-devhelp     1.0.2                    pypi_0    pypi
+sphinxcontrib-htmlhelp    2.0.0                    pypi_0    pypi
+sphinxcontrib-jsmath      1.0.1                    pypi_0    pypi
+sphinxcontrib-qthelp      1.0.3                    pypi_0    pypi
+sphinxcontrib-serializinghtml 1.1.5                    pypi_0    pypi
+sqlalchemy                1.4.31           py37h5e8e339_0    conda-forge
+sqlite                    3.37.0               h9cd32fc_0    conda-forge
+statsmodels               0.13.2           py37h7f8727e_0    defaults
+tenacity                  8.0.1                    pypi_0    pypi
+terminado                 0.12.1           py37h89c1867_1    conda-forge
+testpath                  0.5.0              pyhd8ed1ab_0    conda-forge
+tk                        8.6.11               h27826a3_1    conda-forge
+tomli                     2.0.1                    pypi_0    pypi
+toolz                     0.11.2                   pypi_0    pypi
+tornado                   6.1              py37h5e8e339_2    conda-forge
+traitlets                 4.3.3                    pypi_0    pypi
+traittypes                0.2.1              pyh9f0ad1d_2    conda-forge
+typing_extensions         4.0.1              pyha770c72_0    conda-forge
+urllib3                   1.26.8             pyhd8ed1ab_1    conda-forge
+wcwidth                   0.2.5              pyh9f0ad1d_2    conda-forge
+webencodings              0.5.1                      py_1    conda-forge
+websocket-client          1.2.3              pyhd8ed1ab_0    conda-forge
+wheel                     0.37.1             pyhd8ed1ab_0    conda-forge
+widgetsnbextension        3.5.2            py37h89c1867_1    conda-forge
+xz                        5.2.5                h516909a_1    conda-forge
+zeromq                    4.3.4                h9c3ff4c_1    conda-forge
+zipp                      3.7.0              pyhd8ed1ab_0    conda-forge
+zlib                      1.2.11            h36c2ea0_1013    conda-forge
+zstd                      1.5.2                ha95c52a_0    conda-forge
+
