@@ -1,7 +1,5 @@
-cmds:
-  - pip: "pip install {pkg_name}"
 channels:
-  - defaults
+  - conda-forge
 dependencies:
   - ipython
   - ipywidgets
@@ -13,7 +11,7 @@ dependencies:
   - seaborn
   - statsmodels
   - matplotlib
-  - pip==21.1.2
+  - pip
   - pip:
     - nbinteract
     - datascience
