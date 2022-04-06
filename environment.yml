@@ -1,5 +1,6 @@
 channels:
   - conda-forge
+  - defaults
 dependencies:
   - ipython
   - ipywidgets
@@ -11,7 +12,7 @@ dependencies:
   - seaborn
   - statsmodels
   - matplotlib
-  - pip
+  - pip==21.1.2
   - pip:
     - nbinteract
     - datascience
